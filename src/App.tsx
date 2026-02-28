@@ -50,7 +50,7 @@ function Nav() {
         style={{
           fontFamily: fontHeading,
           fontWeight: 700,
-          fontSize: '20px',
+          fontSize: '24px',
           color: brand.primary,
           textDecoration: 'none',
         }}
@@ -69,7 +69,7 @@ function Nav() {
               href={link.href}
               style={{
                 fontFamily: fontBody,
-                fontSize: '16px',
+                fontSize: '20px',
                 color: brand.muted,
                 textDecoration: 'none',
                 transition: 'color 0.2s',
@@ -85,7 +85,7 @@ function Nav() {
           href="#cta"
           style={{
             fontFamily: fontBody,
-            fontSize: '15px',
+            fontSize: '20px',
             color: brand.cream,
             background: brand.primary,
             padding: '10px 24px',
@@ -155,7 +155,7 @@ function Hero() {
       <p
         style={{
           fontFamily: fontHeading,
-          fontSize: '10px',
+          fontSize: '13px',
           textTransform: 'uppercase',
           letterSpacing: '3px',
           color: brand.muted,
@@ -170,7 +170,7 @@ function Hero() {
         style={{
           fontFamily: fontHeading,
           fontWeight: 700,
-          fontSize: 'clamp(36px, 5vw, 72px)',
+          fontSize: 'clamp(42px, 5.5vw, 80px)',
           lineHeight: 1.1,
           color: brand.text,
           maxWidth: '900px',
@@ -185,7 +185,7 @@ function Hero() {
       <p
         style={{
           fontFamily: fontBody,
-          fontSize: 'clamp(16px, 2vw, 20px)',
+          fontSize: 'clamp(18px, 2.5vw, 24px)',
           color: brand.muted,
           maxWidth: '700px',
           lineHeight: 1.6,
@@ -202,7 +202,7 @@ function Hero() {
         href="#cta"
         style={{
           fontFamily: fontBody,
-          fontSize: '17px',
+          fontSize: '19px',
           color: brand.cream,
           background: brand.primary,
           padding: '14px 36px',
@@ -244,7 +244,7 @@ function Hero() {
               style={{
                 fontFamily: fontHeading,
                 fontWeight: 700,
-                fontSize: 'clamp(24px, 3vw, 36px)',
+                fontSize: 'clamp(28px, 3.5vw, 42px)',
                 color: brand.primary,
                 marginBottom: '4px',
               }}
@@ -254,7 +254,7 @@ function Hero() {
             <p
               style={{
                 fontFamily: fontHeading,
-                fontSize: '10px',
+                fontSize: '13px',
                 textTransform: 'uppercase',
                 letterSpacing: '2px',
                 color: brand.muted,
@@ -319,7 +319,7 @@ function VideoSection() {
             bottom: '20px',
             left: '24px',
             fontFamily: fontBody,
-            fontSize: '14px',
+            fontSize: '18px',
             color: 'rgba(250,248,242,0.7)',
           }}
         >
@@ -348,7 +348,7 @@ function ProblemSection() {
           style={{
             fontFamily: fontHeading,
             fontWeight: 700,
-            fontSize: 'clamp(28px, 3.5vw, 44px)',
+            fontSize: 'clamp(32px, 4vw, 52px)',
             lineHeight: 1.15,
             color: brand.cream,
           }}
@@ -360,7 +360,7 @@ function ProblemSection() {
           <p
             style={{
               fontFamily: fontBody,
-              fontSize: '18px',
+              fontSize: '22px',
               color: 'rgba(250,248,242,0.7)',
               lineHeight: 1.7,
               marginBottom: '20px',
@@ -373,7 +373,7 @@ function ProblemSection() {
           <p
             style={{
               fontFamily: fontBody,
-              fontSize: '18px',
+              fontSize: '22px',
               color: 'rgba(250,248,242,0.7)',
               lineHeight: 1.7,
             }}
@@ -420,7 +420,7 @@ function ThumbnailPortfolio() {
         <p
           style={{
             fontFamily: fontHeading,
-            fontSize: '10px',
+            fontSize: '13px',
             textTransform: 'uppercase',
             letterSpacing: '3px',
             color: brand.muted,
@@ -454,7 +454,7 @@ function ThumbnailPortfolio() {
                 style={{
                   fontFamily: fontHeading,
                   fontWeight: 700,
-                  fontSize: '16px',
+                  fontSize: '20px',
                   color: brand.cream,
                   textAlign: 'center',
                 }}
@@ -467,7 +467,7 @@ function ThumbnailPortfolio() {
         <p
           style={{
             fontFamily: fontBody,
-            fontSize: '14px',
+            fontSize: '18px',
             color: brand.muted,
             textAlign: 'center',
             marginTop: '32px',
@@ -529,7 +529,7 @@ function CaseStudies() {
           <p
             style={{
               fontFamily: fontHeading,
-              fontSize: '10px',
+              fontSize: '13px',
               textTransform: 'uppercase',
               letterSpacing: '3px',
               color: brand.muted,
@@ -542,7 +542,7 @@ function CaseStudies() {
             style={{
               fontFamily: fontHeading,
               fontWeight: 700,
-              fontSize: 'clamp(28px, 3.5vw, 44px)',
+              fontSize: 'clamp(32px, 4vw, 52px)',
               color: brand.text,
               marginBottom: '16px',
             }}
@@ -552,7 +552,7 @@ function CaseStudies() {
           <p
             style={{
               fontFamily: fontBody,
-              fontSize: '18px',
+              fontSize: '22px',
               color: brand.muted,
               maxWidth: '600px',
               margin: '0 auto',
@@ -600,7 +600,7 @@ function CaseStudies() {
                   style={{
                     fontFamily: fontHeading,
                     fontWeight: 700,
-                    fontSize: '18px',
+                    fontSize: '22px',
                     color: brand.cream,
                   }}
                 >
@@ -612,7 +612,7 @@ function CaseStudies() {
                   style={{
                     fontFamily: fontHeading,
                     fontWeight: 600,
-                    fontSize: '14px',
+                    fontSize: '18px',
                     color: brand.text,
                     marginBottom: '16px',
                   }}
@@ -629,7 +629,7 @@ function CaseStudies() {
                         gap: '10px',
                         marginBottom: '12px',
                         fontFamily: fontBody,
-                        fontSize: '14px',
+                        fontSize: '18px',
                         color: brand.text,
                         lineHeight: 1.5,
                       }}
@@ -675,7 +675,7 @@ function BusinessOwnerSection() {
           style={{
             fontFamily: fontHeading,
             fontWeight: 700,
-            fontSize: 'clamp(28px, 3.5vw, 44px)',
+            fontSize: 'clamp(32px, 4vw, 52px)',
             lineHeight: 1.15,
             color: brand.cream,
             marginBottom: '24px',
@@ -687,7 +687,7 @@ function BusinessOwnerSection() {
         <p
           style={{
             fontFamily: fontBody,
-            fontSize: '18px',
+            fontSize: '22px',
             color: 'rgba(250,248,242,0.7)',
             maxWidth: '700px',
             margin: '0 auto 64px',
@@ -714,7 +714,7 @@ function BusinessOwnerSection() {
           <p
             style={{
               fontFamily: fontHeading,
-              fontSize: '10px',
+              fontSize: '13px',
               textTransform: 'uppercase',
               letterSpacing: '3px',
               color: brand.muted,
@@ -727,7 +727,7 @@ function BusinessOwnerSection() {
             style={{
               fontFamily: fontHeading,
               fontWeight: 700,
-              fontSize: 'clamp(22px, 3vw, 32px)',
+              fontSize: 'clamp(26px, 3.5vw, 38px)',
               color: brand.cream,
               marginBottom: '16px',
             }}
@@ -737,7 +737,7 @@ function BusinessOwnerSection() {
           <p
             style={{
               fontFamily: fontBody,
-              fontSize: '16px',
+              fontSize: '20px',
               color: 'rgba(250,248,242,0.7)',
               maxWidth: '750px',
               margin: '0 auto',
@@ -776,7 +776,7 @@ function BusinessOwnerSection() {
             <p
               style={{
                 fontFamily: fontHeading,
-                fontSize: '10px',
+                fontSize: '13px',
                 textTransform: 'uppercase',
                 letterSpacing: '3px',
                 color: brand.secondary,
@@ -787,10 +787,10 @@ function BusinessOwnerSection() {
             </p>
             {creativeLead.map((item) => (
               <div key={item.title} style={{ marginBottom: '24px' }}>
-                <p style={{ fontFamily: fontHeading, fontWeight: 600, fontSize: '15px', color: brand.dark, marginBottom: '4px' }}>
+                <p style={{ fontFamily: fontHeading, fontWeight: 600, fontSize: '20px', color: brand.dark, marginBottom: '4px' }}>
                   {item.title}
                 </p>
-                <p style={{ fontFamily: fontBody, fontSize: '14px', color: 'rgba(13,31,23,0.65)', lineHeight: 1.5 }}>
+                <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(13,31,23,0.65)', lineHeight: 1.5 }}>
                   {item.desc}
                 </p>
               </div>
@@ -814,7 +814,7 @@ function BusinessOwnerSection() {
             <p
               style={{
                 fontFamily: fontHeading,
-                fontSize: '10px',
+                fontSize: '13px',
                 textTransform: 'uppercase',
                 letterSpacing: '3px',
                 color: brand.secondary,
@@ -825,10 +825,10 @@ function BusinessOwnerSection() {
             </p>
             {aiAccelerates.map((item) => (
               <div key={item.title} style={{ marginBottom: '24px' }}>
-                <p style={{ fontFamily: fontHeading, fontWeight: 600, fontSize: '15px', color: brand.dark, marginBottom: '4px' }}>
+                <p style={{ fontFamily: fontHeading, fontWeight: 600, fontSize: '20px', color: brand.dark, marginBottom: '4px' }}>
                   {item.title}
                 </p>
-                <p style={{ fontFamily: fontBody, fontSize: '14px', color: 'rgba(13,31,23,0.65)', lineHeight: 1.5 }}>
+                <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(13,31,23,0.65)', lineHeight: 1.5 }}>
                   {item.desc}
                 </p>
               </div>
@@ -840,7 +840,7 @@ function BusinessOwnerSection() {
           style={{
             fontFamily: fontBody,
             fontStyle: 'italic',
-            fontSize: '16px',
+            fontSize: '20px',
             color: 'rgba(250,248,242,0.7)',
             textAlign: 'center',
             marginTop: '48px',
@@ -867,7 +867,7 @@ function ComparisonCards() {
           style={{
             fontFamily: fontHeading,
             fontWeight: 700,
-            fontSize: 'clamp(22px, 3vw, 32px)',
+            fontSize: 'clamp(26px, 3.5vw, 38px)',
             color: brand.cream,
             textAlign: 'center',
             marginBottom: '40px',
@@ -884,7 +884,7 @@ function ComparisonCards() {
           }}
         >
           <div style={{ background: brand.cardDark, borderRadius: '16px', padding: '32px', border: '1px solid rgba(220,60,60,0.2)' }}>
-            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '18px', color: brand.cream, marginBottom: '24px' }}>
+            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.cream, marginBottom: '24px' }}>
               The Common Approach
             </h3>
             {[
@@ -895,12 +895,12 @@ function ComparisonCards() {
             ].map((item) => (
               <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
                 <X size={16} color={brand.red} style={{ flexShrink: 0, marginTop: '3px' }} />
-                <p style={{ fontFamily: fontBody, fontSize: '14px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
+                <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
               </div>
             ))}
           </div>
           <div style={{ background: brand.cardDark, borderRadius: '16px', padding: '32px', border: '1px solid rgba(220,60,60,0.2)' }}>
-            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '18px', color: brand.red, marginBottom: '24px' }}>
+            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.red, marginBottom: '24px' }}>
               Why It Fails
             </h3>
             {[
@@ -911,7 +911,7 @@ function ComparisonCards() {
             ].map((item) => (
               <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
                 <X size={16} color={brand.red} style={{ flexShrink: 0, marginTop: '3px' }} />
-                <p style={{ fontFamily: fontBody, fontSize: '14px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
+                <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
               </div>
             ))}
           </div>
@@ -922,7 +922,7 @@ function ComparisonCards() {
           style={{
             fontFamily: fontHeading,
             fontWeight: 700,
-            fontSize: 'clamp(22px, 3vw, 32px)',
+            fontSize: 'clamp(26px, 3.5vw, 38px)',
             color: brand.cream,
             textAlign: 'center',
             marginBottom: '40px',
@@ -938,7 +938,7 @@ function ComparisonCards() {
           }}
         >
           <div style={{ background: brand.cardDark, borderRadius: '16px', padding: '32px', border: '1px solid rgba(45,106,79,0.3)' }}>
-            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '18px', color: brand.cream, marginBottom: '24px' }}>
+            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.cream, marginBottom: '24px' }}>
               The Infrastructure
             </h3>
             {[
@@ -950,12 +950,12 @@ function ComparisonCards() {
             ].map((item) => (
               <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
                 <Check size={16} color={brand.secondary} style={{ flexShrink: 0, marginTop: '3px' }} />
-                <p style={{ fontFamily: fontBody, fontSize: '14px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
+                <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
               </div>
             ))}
           </div>
           <div style={{ background: brand.cardDark, borderRadius: '16px', padding: '32px', border: '1px solid rgba(45,106,79,0.3)' }}>
-            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '18px', color: brand.cream, marginBottom: '24px' }}>
+            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.cream, marginBottom: '24px' }}>
               What That Means For You
             </h3>
             {[
@@ -967,7 +967,7 @@ function ComparisonCards() {
             ].map((item) => (
               <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
                 <Check size={16} color={brand.secondary} style={{ flexShrink: 0, marginTop: '3px' }} />
-                <p style={{ fontFamily: fontBody, fontSize: '14px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
+                <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
               </div>
             ))}
           </div>
@@ -992,10 +992,10 @@ function ProcessSection() {
     <section id="process" style={{ background: brand.bg, padding: '100px 24px' }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-          <p style={{ fontFamily: fontHeading, fontSize: '10px', textTransform: 'uppercase', letterSpacing: '3px', color: brand.muted, marginBottom: '16px' }}>
+          <p style={{ fontFamily: fontHeading, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '3px', color: brand.muted, marginBottom: '16px' }}>
             THE FULL STACK
           </p>
-          <h2 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: 'clamp(28px, 3.5vw, 44px)', color: brand.text }}>
+          <h2 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: 'clamp(32px, 4vw, 52px)', color: brand.text }}>
             One System. End to End. Built to Convert.
           </h2>
         </div>
@@ -1028,7 +1028,7 @@ function ProcessSection() {
                   color: brand.cream,
                   fontFamily: fontHeading,
                   fontWeight: 700,
-                  fontSize: '16px',
+                  fontSize: '20px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -1037,10 +1037,10 @@ function ProcessSection() {
               >
                 {step.num}
               </div>
-              <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '18px', color: brand.text, marginBottom: '8px' }}>
+              <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.text, marginBottom: '8px' }}>
                 {step.title}
               </h3>
-              <p style={{ fontFamily: fontBody, fontSize: '14px', color: brand.muted, lineHeight: 1.6 }}>
+              <p style={{ fontFamily: fontBody, fontSize: '18px', color: brand.muted, lineHeight: 1.6 }}>
                 {step.desc}
               </p>
             </div>
@@ -1075,7 +1075,7 @@ function ProcessSection() {
                 color: brand.cream,
                 fontFamily: fontHeading,
                 fontWeight: 700,
-                fontSize: '22px',
+                fontSize: '26px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -1085,10 +1085,10 @@ function ProcessSection() {
               7
             </div>
             <div style={{ flex: 1, minWidth: '250px' }}>
-              <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.text, marginBottom: '12px' }}>
+              <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '26px', color: brand.text, marginBottom: '12px' }}>
                 Tracking, Attribution & Revenue Intelligence
               </h3>
-              <p style={{ fontFamily: fontBody, fontSize: '15px', color: brand.muted, lineHeight: 1.7 }}>
+              <p style={{ fontFamily: fontBody, fontSize: '20px', color: brand.muted, lineHeight: 1.7 }}>
                 We build a performance database that tracks CTR, retention, traffic sources,
                 funnel drop-off, and sales attribution — so every decision is backed by data,
                 not guesswork. AI surfaces the patterns. You see exactly what's working and
@@ -1119,11 +1119,11 @@ function RevenueEngine() {
   return (
     <section id="system" style={{ background: brand.dark, padding: '100px 24px' }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
-        <h2 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: 'clamp(28px, 3.5vw, 44px)', color: brand.cream, marginBottom: '16px' }}>
+        <h2 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: 'clamp(32px, 4vw, 52px)', color: brand.cream, marginBottom: '16px' }}>
           Content Is the Entry Point.{' '}
           <span style={{ color: brand.secondary }}>The System Is What Converts.</span>
         </h2>
-        <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(250,248,242,0.7)', maxWidth: '650px', margin: '0 auto 64px', lineHeight: 1.7 }}>
+        <p style={{ fontFamily: fontBody, fontSize: '22px', color: 'rgba(250,248,242,0.7)', maxWidth: '650px', margin: '0 auto 64px', lineHeight: 1.7 }}>
           Creative skill builds trust. Automation builds infrastructure. Together, they build revenue.
         </p>
 
@@ -1164,10 +1164,10 @@ function RevenueEngine() {
               zIndex: 2,
             }}
           >
-            <p style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1.5px', color: brand.cream, textAlign: 'center', lineHeight: 1.3, marginBottom: '4px' }}>
+            <p style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1.5px', color: brand.cream, textAlign: 'center', lineHeight: 1.3, marginBottom: '4px' }}>
               REVENUE INFRASTRUCTURE ENGINE
             </p>
-            <p style={{ fontFamily: fontBody, fontSize: '9px', color: 'rgba(250,248,242,0.6)', textTransform: 'uppercase', letterSpacing: '1px' }}>
+            <p style={{ fontFamily: fontBody, fontSize: '11px', color: 'rgba(250,248,242,0.6)', textTransform: 'uppercase', letterSpacing: '1px' }}>
               CREATIVE + AI + SYSTEMS
             </p>
           </div>
@@ -1192,7 +1192,7 @@ function RevenueEngine() {
                   whiteSpace: 'nowrap',
                 }}
               >
-                <p style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '11px', color: brand.cream }}>
+                <p style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '13px', color: brand.cream }}>
                   {node}
                 </p>
               </div>
@@ -1210,7 +1210,7 @@ function FinalComparison() {
     <section style={{ background: brand.dark, padding: '80px 24px' }}>
       <div style={{ maxWidth: '900px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
         <div style={{ background: brand.cardDark, borderRadius: '16px', padding: '32px', border: '1px solid rgba(220,60,60,0.2)' }}>
-          <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '18px', color: brand.cream, marginBottom: '24px' }}>
+          <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.cream, marginBottom: '24px' }}>
             Content Without Infrastructure
           </h3>
           {[
@@ -1222,12 +1222,12 @@ function FinalComparison() {
           ].map((item) => (
             <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
               <X size={16} color={brand.red} style={{ flexShrink: 0, marginTop: '3px' }} />
-              <p style={{ fontFamily: fontBody, fontSize: '14px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
+              <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
             </div>
           ))}
         </div>
         <div style={{ background: brand.cardDark, borderRadius: '16px', padding: '32px', border: '1px solid rgba(45,106,79,0.3)' }}>
-          <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '18px', color: brand.cream, marginBottom: '24px' }}>
+          <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.cream, marginBottom: '24px' }}>
             Content With a System Behind It
           </h3>
           {[
@@ -1239,7 +1239,7 @@ function FinalComparison() {
           ].map((item) => (
             <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
               <Check size={16} color={brand.secondary} style={{ flexShrink: 0, marginTop: '3px' }} />
-              <p style={{ fontFamily: fontBody, fontSize: '14px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
+              <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
             </div>
           ))}
         </div>
@@ -1260,10 +1260,10 @@ function FinalCTA() {
       }}
     >
       <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-        <h2 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: 'clamp(28px, 3.5vw, 44px)', color: brand.text, marginBottom: '20px' }}>
+        <h2 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: 'clamp(32px, 4vw, 52px)', color: brand.text, marginBottom: '20px' }}>
           Ready to Install the System?
         </h2>
-        <p style={{ fontFamily: fontBody, fontSize: '18px', color: brand.muted, lineHeight: 1.7, marginBottom: '40px' }}>
+        <p style={{ fontFamily: fontBody, fontSize: '22px', color: brand.muted, lineHeight: 1.7, marginBottom: '40px' }}>
           Book a strategy call. We'll map your offer, your audience, and the infrastructure
           that connects content to revenue — so every video works harder than the last.
         </p>
@@ -1271,7 +1271,7 @@ function FinalCTA() {
           href="#cta"
           style={{
             fontFamily: fontBody,
-            fontSize: '17px',
+            fontSize: '19px',
             color: brand.cream,
             background: brand.primary,
             padding: '16px 40px',
@@ -1313,10 +1313,10 @@ function SiteFooter() {
         gap: '16px',
       }}
     >
-      <span style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '16px', color: brand.primary }}>
+      <span style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '20px', color: brand.primary }}>
         Bakes Media
       </span>
-      <span style={{ fontFamily: fontBody, fontSize: '14px', color: brand.muted }}>
+      <span style={{ fontFamily: fontBody, fontSize: '18px', color: brand.muted }}>
         &copy; 2026 Tony Bakes &middot; Built from scratch
       </span>
     </footer>
