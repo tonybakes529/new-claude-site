@@ -129,8 +129,29 @@ function Hero() {
         alignItems: 'center',
         textAlign: 'center',
         padding: '120px 24px 60px',
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      <img
+        src="/illustrations/hero.png"
+        alt=""
+        aria-hidden="true"
+        className="hero-illustration"
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          maxWidth: '900px',
+          width: '80%',
+          opacity: 0.07,
+          zIndex: 0,
+          pointerEvents: 'none',
+          objectFit: 'contain',
+          display: 'block',
+        }}
+      />
       <p
         style={{
           fontFamily: fontHeading,
@@ -139,6 +160,8 @@ function Hero() {
           letterSpacing: '3px',
           color: brand.muted,
           marginBottom: '24px',
+          position: 'relative',
+          zIndex: 1,
         }}
       >
         YOUTUBE REVENUE INFRASTRUCTURE
@@ -152,6 +175,8 @@ function Hero() {
           color: brand.text,
           maxWidth: '900px',
           marginBottom: '24px',
+          position: 'relative',
+          zIndex: 1,
         }}
       >
         I Build the Revenue Infrastructure Behind{' '}
@@ -165,6 +190,8 @@ function Hero() {
           maxWidth: '700px',
           lineHeight: 1.6,
           marginBottom: '40px',
+          position: 'relative',
+          zIndex: 1,
         }}
       >
         Content is just the front end. I build the full system — funnels, offers, automated
@@ -183,6 +210,8 @@ function Hero() {
           textDecoration: 'none',
           transition: 'all 0.2s',
           display: 'inline-block',
+          position: 'relative',
+          zIndex: 1,
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.background = brand.secondary
@@ -205,6 +234,8 @@ function Hero() {
           marginTop: '64px',
           paddingTop: '40px',
           borderTop: `1px solid ${brand.border}`,
+          position: 'relative',
+          zIndex: 1,
         }}
       >
         {stats.map((s) => (
@@ -728,6 +759,19 @@ function BusinessOwnerSection() {
           }}
         >
           <div>
+            <img
+              src="/illustrations/creative-human.png"
+              alt=""
+              aria-hidden="true"
+              className="section-illustration"
+              style={{
+                display: 'block',
+                margin: '0 auto 20px',
+                height: '180px',
+                objectFit: 'contain',
+                opacity: 0.2,
+              }}
+            />
             <p
               style={{
                 fontFamily: fontHeading,
@@ -752,6 +796,19 @@ function BusinessOwnerSection() {
             ))}
           </div>
           <div>
+            <img
+              src="/illustrations/ai-machine.png"
+              alt=""
+              aria-hidden="true"
+              className="section-illustration"
+              style={{
+                display: 'block',
+                margin: '0 auto 20px',
+                height: '180px',
+                objectFit: 'contain',
+                opacity: 0.2,
+              }}
+            />
             <p
               style={{
                 fontFamily: fontHeading,
@@ -921,12 +978,12 @@ function ComparisonCards() {
 /* ──────────────────── 7-STEP PROCESS ──────────────────── */
 function ProcessSection() {
   const steps = [
-    { num: 1, title: 'Funnel Architecture', desc: 'We audit your offer, map your sales process, and design the conversion path that turns viewers into buyers.' },
-    { num: 2, title: 'Research & Ideation', desc: 'AI surfaces high-intent topics and competitor gaps. The creative team turns raw data into buyer-attracting angles.' },
-    { num: 3, title: 'Scripting & Structure', desc: 'AI informs the data layer — but the storytelling, hooks, and persuasion come from writers with real experience.' },
-    { num: 4, title: 'Production & Editing', desc: 'No AI shortcuts here. Skilled editors build pacing, trust, and retention — the things that keep people watching and buying.' },
-    { num: 5, title: 'Packaging & CTR', desc: 'Creatives design the thumbnails and titles. AI helps test variations and optimize click-through rates at scale.' },
-    { num: 6, title: 'SEO & Distribution', desc: 'AI optimizes metadata and distribution timing. Content is structured to rank in YouTube and Google search, compounding over time.' },
+    { num: 1, title: 'Funnel Architecture', desc: 'We audit your offer, map your sales process, and design the conversion path that turns viewers into buyers.', img: '/illustrations/step1-funnel.png' },
+    { num: 2, title: 'Research & Ideation', desc: 'AI surfaces high-intent topics and competitor gaps. The creative team turns raw data into buyer-attracting angles.', img: '/illustrations/step2-research.png' },
+    { num: 3, title: 'Scripting & Structure', desc: 'AI informs the data layer — but the storytelling, hooks, and persuasion come from writers with real experience.', img: '/illustrations/step3-scripting.png' },
+    { num: 4, title: 'Production & Editing', desc: 'No AI shortcuts here. Skilled editors build pacing, trust, and retention — the things that keep people watching and buying.', img: '/illustrations/step4-production.png' },
+    { num: 5, title: 'Packaging & CTR', desc: 'Creatives design the thumbnails and titles. AI helps test variations and optimize click-through rates at scale.', img: '/illustrations/step5-thumbnails.png' },
+    { num: 6, title: 'SEO & Distribution', desc: 'AI optimizes metadata and distribution timing. Content is structured to rank in YouTube and Google search, compounding over time.', img: '/illustrations/step6-seo.png' },
   ]
 
   return (
@@ -944,6 +1001,22 @@ function ProcessSection() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px', marginBottom: '24px' }}>
           {steps.map((step) => (
             <div key={step.num} style={{ background: '#fff', border: `1px solid ${brand.border}`, borderRadius: '16px', padding: '32px' }}>
+              <img
+                src={step.img}
+                alt=""
+                aria-hidden="true"
+                className="step-illustration"
+                style={{
+                  display: 'block',
+                  margin: '0 auto 12px',
+                  height: '160px',
+                  maxWidth: '100%',
+                  objectFit: 'contain',
+                  transition: 'transform 0.3s ease',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+              />
               <div
                 style={{
                   width: '40px',
@@ -974,6 +1047,22 @@ function ProcessSection() {
 
         {/* Step 7 */}
         <div style={{ background: '#fff', border: `2px solid ${brand.primary}`, borderRadius: '16px', padding: '40px' }}>
+          <img
+            src="/illustrations/step7-tracking.png"
+            alt=""
+            aria-hidden="true"
+            className="step-illustration"
+            style={{
+              display: 'block',
+              margin: '0 auto 24px',
+              height: '280px',
+              maxWidth: '100%',
+              objectFit: 'contain',
+              transition: 'transform 0.3s ease',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+          />
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: '24px', flexWrap: 'wrap' }}>
             <div
               style={{
@@ -1243,6 +1332,8 @@ export default function App() {
         @media (max-width: 768px) {
           .nav-links { display: none !important; }
           .engine-wheel { display: none !important; }
+          .step-illustration { height: 120px !important; }
+          .section-illustration { height: 140px !important; }
         }
       `}</style>
       <Nav />
