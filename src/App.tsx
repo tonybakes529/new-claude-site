@@ -655,17 +655,17 @@ function CaseStudies() {
 /* ──────────────────── BUSINESS OWNER + CREATIVE/AI ──────────────────── */
 function BusinessOwnerSection() {
   const creativeLead = [
-    { title: 'Strategy & Positioning', desc: 'Shaped by a decade of experience, not a prompt' },
-    { title: 'Scripting & Storytelling', desc: 'Crafted by writers who understand persuasion' },
-    { title: 'Production & Editing', desc: 'Built by editors who know how to hold attention' },
-    { title: 'Thumbnail Design', desc: 'Designed by creatives who understand what stops the scroll' },
+    { title: 'Strategy & Positioning', desc: 'Your offer, your story, your market — shaped by a decade of experience, not a prompt.' },
+    { title: 'Scripting & Storytelling', desc: 'Crafted by writers who understand persuasion, pacing, and how to move a viewer to action.' },
+    { title: 'Production & Editing', desc: 'Built by editors who know how to hold attention, build trust, and deliver a message — not just cut footage.' },
+    { title: 'Thumbnail Design', desc: 'Designed by creatives who understand what stops the scroll — not AI-generated filler.' },
   ]
 
   const aiAccelerates = [
-    { title: 'Research & Topic Intelligence', desc: 'AI surfaces high-intent topics so the creative team builds on data' },
-    { title: 'SEO & Metadata Optimization', desc: 'Optimized through AI models trained on what ranks' },
-    { title: 'Automated Funnel Sequences', desc: 'Email flows and follow-up that nurture leads without manual effort' },
-    { title: 'Performance Intelligence', desc: 'AI identifies which content drives revenue and where funnels leak' },
+    { title: 'Research & Topic Intelligence', desc: 'AI surfaces high-intent topics, competitor gaps, and search patterns — so the creative team builds on data, not guesses.' },
+    { title: 'SEO & Metadata Optimization', desc: 'Titles, descriptions, and tags optimized through AI models trained on what ranks — then refined by human judgment.' },
+    { title: 'Automated Funnel Sequences', desc: 'Email flows, CTA triggers, and follow-up sequences that nurture leads without manual effort — designed once, optimized continuously.' },
+    { title: 'Performance Intelligence', desc: 'AI identifies which content drives revenue, where funnels leak, and what to double down on — so every decision is backed by signal.' },
   ]
 
   return (
@@ -758,7 +758,7 @@ function BusinessOwnerSection() {
             gap: '48px',
           }}
         >
-          <div>
+          <div style={{ backgroundColor: '#FFFFFF', borderRadius: '16px', padding: '32px' }}>
             <img
               src="/illustrations/creative-human.png"
               alt=""
@@ -766,10 +766,11 @@ function BusinessOwnerSection() {
               className="section-illustration"
               style={{
                 display: 'block',
-                margin: '0 auto 20px',
-                height: '180px',
+                margin: '0 auto 24px',
+                height: '200px',
                 objectFit: 'contain',
-                opacity: 0.2,
+                opacity: 1,
+                borderRadius: '12px',
               }}
             />
             <p
@@ -786,16 +787,16 @@ function BusinessOwnerSection() {
             </p>
             {creativeLead.map((item) => (
               <div key={item.title} style={{ marginBottom: '24px' }}>
-                <p style={{ fontFamily: fontHeading, fontWeight: 600, fontSize: '15px', color: brand.cream, marginBottom: '4px' }}>
+                <p style={{ fontFamily: fontHeading, fontWeight: 600, fontSize: '15px', color: brand.dark, marginBottom: '4px' }}>
                   {item.title}
                 </p>
-                <p style={{ fontFamily: fontBody, fontSize: '14px', color: 'rgba(250,248,242,0.6)', lineHeight: 1.5 }}>
+                <p style={{ fontFamily: fontBody, fontSize: '14px', color: 'rgba(13,31,23,0.65)', lineHeight: 1.5 }}>
                   {item.desc}
                 </p>
               </div>
             ))}
           </div>
-          <div>
+          <div style={{ backgroundColor: '#FFFFFF', borderRadius: '16px', padding: '32px' }}>
             <img
               src="/illustrations/ai-machine.png"
               alt=""
@@ -803,10 +804,11 @@ function BusinessOwnerSection() {
               className="section-illustration"
               style={{
                 display: 'block',
-                margin: '0 auto 20px',
-                height: '180px',
+                margin: '0 auto 24px',
+                height: '200px',
                 objectFit: 'contain',
-                opacity: 0.2,
+                opacity: 1,
+                borderRadius: '12px',
               }}
             />
             <p
@@ -823,10 +825,10 @@ function BusinessOwnerSection() {
             </p>
             {aiAccelerates.map((item) => (
               <div key={item.title} style={{ marginBottom: '24px' }}>
-                <p style={{ fontFamily: fontHeading, fontWeight: 600, fontSize: '15px', color: brand.cream, marginBottom: '4px' }}>
+                <p style={{ fontFamily: fontHeading, fontWeight: 600, fontSize: '15px', color: brand.dark, marginBottom: '4px' }}>
                   {item.title}
                 </p>
-                <p style={{ fontFamily: fontBody, fontSize: '14px', color: 'rgba(250,248,242,0.6)', lineHeight: 1.5 }}>
+                <p style={{ fontFamily: fontBody, fontSize: '14px', color: 'rgba(13,31,23,0.65)', lineHeight: 1.5 }}>
                   {item.desc}
                 </p>
               </div>
