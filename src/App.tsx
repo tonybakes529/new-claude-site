@@ -152,20 +152,6 @@ function Hero() {
           display: 'block',
         }}
       />
-      <p
-        style={{
-          fontFamily: fontHeading,
-          fontSize: '13px',
-          textTransform: 'uppercase',
-          letterSpacing: '3px',
-          color: brand.muted,
-          marginBottom: '24px',
-          position: 'relative',
-          zIndex: 1,
-        }}
-      >
-        YOUTUBE REVENUE INFRASTRUCTURE
-      </p>
       <h1
         style={{
           fontFamily: fontHeading,
@@ -174,7 +160,7 @@ function Hero() {
           lineHeight: 1.1,
           color: brand.text,
           maxWidth: '900px',
-          marginBottom: '24px',
+          marginBottom: '48px',
           position: 'relative',
           zIndex: 1,
         }}
@@ -182,89 +168,6 @@ function Hero() {
         I Build the Revenue Infrastructure Behind{' '}
         <span style={{ color: brand.primary }}>Your YouTube Channel.</span>
       </h1>
-      <p
-        style={{
-          fontFamily: fontBody,
-          fontSize: 'clamp(18px, 2.5vw, 24px)',
-          color: brand.muted,
-          maxWidth: '700px',
-          lineHeight: 1.6,
-          marginBottom: '40px',
-          position: 'relative',
-          zIndex: 1,
-        }}
-      >
-        Content is just the front end. I build the full system — funnels, offers, automated
-        conversion paths, and revenue tracking — powered by a creative team that knows how to
-        implement AI where it actually moves the needle.
-      </p>
-      <a
-        href="#cta"
-        style={{
-          fontFamily: fontBody,
-          fontSize: '19px',
-          color: brand.cream,
-          background: brand.primary,
-          padding: '14px 36px',
-          borderRadius: '8px',
-          textDecoration: 'none',
-          transition: 'all 0.2s',
-          display: 'inline-block',
-          position: 'relative',
-          zIndex: 1,
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = brand.secondary
-          e.currentTarget.style.transform = 'translateY(-2px)'
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.background = brand.primary
-          e.currentTarget.style.transform = 'translateY(0)'
-        }}
-      >
-        Book a Call
-      </a>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-          gap: '32px',
-          width: '100%',
-          maxWidth: '800px',
-          marginTop: '64px',
-          paddingTop: '40px',
-          borderTop: `1px solid ${brand.border}`,
-          position: 'relative',
-          zIndex: 1,
-        }}
-      >
-        {stats.map((s) => (
-          <div key={s.label}>
-            <p
-              style={{
-                fontFamily: fontHeading,
-                fontWeight: 700,
-                fontSize: 'clamp(28px, 3.5vw, 42px)',
-                color: brand.primary,
-                marginBottom: '4px',
-              }}
-            >
-              {s.value}
-            </p>
-            <p
-              style={{
-                fontFamily: fontHeading,
-                fontSize: '13px',
-                textTransform: 'uppercase',
-                letterSpacing: '2px',
-                color: brand.muted,
-              }}
-            >
-              {s.label}
-            </p>
-          </div>
-        ))}
-      </div>
       <div
         style={{
           width: '100%',
@@ -312,6 +215,45 @@ function Hero() {
         >
           Watch: How systems turn content into revenue
         </p>
+      </div>
+
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '32px',
+          maxWidth: '800px',
+          width: '100%',
+          marginTop: '48px',
+          position: 'relative',
+          zIndex: 1,
+        }}
+      >
+        {stats.map((s) => (
+          <div key={s.label} style={{ textAlign: 'center' }}>
+            <p
+              style={{
+                fontFamily: fontHeading,
+                fontWeight: 700,
+                fontSize: 'clamp(28px, 3.5vw, 44px)',
+                color: brand.primary,
+                lineHeight: 1.2,
+              }}
+            >
+              {s.value}
+            </p>
+            <p
+              style={{
+                fontFamily: fontBody,
+                fontSize: 'clamp(13px, 1.2vw, 16px)',
+                color: brand.muted,
+                marginTop: '4px',
+              }}
+            >
+              {s.label}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   )
