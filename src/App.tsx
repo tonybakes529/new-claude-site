@@ -265,25 +265,10 @@ function Hero() {
           </div>
         ))}
       </div>
-    </section>
-  )
-}
-
-/* ──────────────────── VIDEO ──────────────────── */
-function VideoSection() {
-  return (
-    <section
-      style={{
-        background: brand.dark,
-        padding: '80px 24px',
-        display: 'flex',
-        justifyContent: 'center',
-      }}
-    >
       <div
         style={{
           width: '100%',
-          maxWidth: '900px',
+          maxWidth: '800px',
           aspectRatio: '16/9',
           border: `2px solid ${brand.secondary}`,
           borderRadius: '16px',
@@ -295,6 +280,8 @@ function VideoSection() {
           boxShadow: '0 0 60px rgba(45,106,79,0.2)',
           overflow: 'hidden',
           cursor: 'pointer',
+          margin: '48px auto 0',
+          zIndex: 1,
         }}
       >
         <div
@@ -320,7 +307,7 @@ function VideoSection() {
             left: '24px',
             fontFamily: fontBody,
             fontSize: '18px',
-            color: 'rgba(250,248,242,0.7)',
+            color: brand.muted,
           }}
         >
           Watch: How systems turn content into revenue
@@ -1340,7 +1327,6 @@ export default function App() {
       `}</style>
       <Nav />
       <Hero />
-      <VideoSection />
       <ProblemSection />
       <ThumbnailPortfolio />
       <CaseStudies />
