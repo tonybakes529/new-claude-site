@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bakes Media Consulting — 90 Day Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF8F2;
+    --green: #1B4332;
+    --green-dark: #0D2818;
+    --green2: #2D6A4F;
+    --accent: #86EFAC;
+    --text: #1B1B1B;
+    --muted: #8B8578;
+    --cream: #F0EDE4;
+    --border: rgba(27,67,50,0.1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); font-family: 'Instrument Serif', serif; color: var(--text); overflow-x: hidden; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--green-dark);
+    padding: 96px 72px 108px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(45,106,79,0.5) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: center; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(134,239,172,0.08); border: 1px solid rgba(134,239,172,0.2);
+    color: var(--accent); font-family: 'Literata', serif; font-size: 11px;
+    font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 100px; margin-bottom: 32px;
+  }
+  .eyebrow::before { content:''; width:6px; height:6px; background:var(--accent); border-radius:50%; animation:blink 2s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+  .hero h1 {
+    font-family: 'Literata', serif;
+    font-size: clamp(44px, 5.5vw, 80px);
+    font-weight: 700; color: #fff;
+    line-height: 1.0; letter-spacing: -0.025em; margin-bottom: 28px;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-family: 'Instrument Serif', serif; font-size: 19px;
+    color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 48px; max-width: 500px;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #fff; color: var(--green);
+    font-family: 'Literata', serif; font-size: 15px; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 20px 52px; text-decoration: none; border-radius: 100px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    transition: background 0.2s, transform 0.15s;
+  }
+  .hero-cta:hover { background: var(--accent); transform: translateY(-2px); }
+
+  /* right side card */
+  .hero-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 36px 32px;
+  }
+  .hero-card-label {
+    font-family: 'Literata', serif; font-size: 11px; font-weight: 700;
+    color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-card-stat { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .hero-card-stat:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .hero-card-num {
+    font-family: 'Literata', serif; font-size: 36px; font-weight: 700;
+    color: #fff; line-height: 1; letter-spacing: -0.02em; margin-bottom: 4px;
+  }
+  .hero-card-num.accent { color: var(--accent); }
+  .hero-card-desc {
+    font-family: 'Literata', serif; font-size: 11px; font-weight: 600;
+    color: rgba(255,255,255,0.35); letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  /* ── FOR WHO ── */
+  .for-who {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 72px;
+  }
+  .for-who-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .section-eyebrow {
+    font-family: 'Literata', serif; font-size: 11px; font-weight: 600;
+    color: var(--green2); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Literata', serif; font-size: clamp(28px, 3vw, 40px);
+    font-weight: 700; color: var(--text); letter-spacing: -0.02em;
+    line-height: 1.1; margin-bottom: 20px;
+  }
+  .section-body {
+    font-family: 'Instrument Serif', serif; font-size: 17px;
+    color: #4A4A44; line-height: 1.75;
+  }
+  .check-list { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+  .check-item { display: flex; align-items: flex-start; gap: 14px; }
+  .check-dot {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--green); flex-shrink: 0; margin-top: 2px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .check-dot::after { content: '✓'; font-size: 10px; color: #fff; font-weight: 700; }
+  .check-text {
+    font-family: 'Instrument Serif', serif; font-size: 16px;
+    color: var(--text); line-height: 1.5;
+  }
+  .x-list { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+  .x-item { display: flex; align-items: flex-start; gap: 14px; }
+  .x-dot {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: rgba(27,67,50,0.1); border: 1px solid var(--border);
+    flex-shrink: 0; margin-top: 2px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .x-dot::after { content: '✕'; font-size: 10px; color: var(--muted); font-weight: 700; }
+  .x-text {
+    font-family: 'Instrument Serif', serif; font-size: 16px;
+    color: var(--muted); line-height: 1.5;
+  }
+
+  /* ── WHAT'S INCLUDED ── */
+  .included { background: #fff; padding: 88px 72px; }
+  .included-inner { max-width: 1080px; margin: 0 auto; }
+  .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 52px; }
+  .included-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 36px 32px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .included-card:hover { border-color: var(--green2); transform: translateY(-2px); }
+  .included-num {
+    font-family: 'Literata', serif; font-size: 11px; font-weight: 700;
+    color: var(--accent); letter-spacing: 0.12em; background: var(--green);
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; margin-bottom: 18px;
+  }
+  .included-title {
+    font-family: 'Literata', serif; font-size: 17px; font-weight: 700;
+    color: var(--text); margin-bottom: 10px; letter-spacing: -0.01em;
+  }
+  .included-body {
+    font-family: 'Instrument Serif', serif; font-size: 14px;
+    color: var(--muted); line-height: 1.65;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how { background: var(--green-dark); padding: 88px 72px; }
+  .how-inner { max-width: 1080px; margin: 0 auto; }
+  .how .section-eyebrow { color: rgba(134,239,172,0.7); }
+  .how .section-title { color: #fff; }
+  .how-steps { display: flex; flex-direction: column; gap: 2px; margin-top: 52px; }
+  .how-step {
+    display: flex; align-items: center; gap: 32px;
+    padding: 24px 32px; background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06); border-radius: 10px;
+    transition: background 0.2s;
+  }
+  .how-step:hover { background: rgba(45,106,79,0.2); }
+  .how-step-num {
+    font-family: 'Literata', serif; font-size: 11px; font-weight: 700;
+    color: rgba(134,239,172,0.35); letter-spacing: 0.12em; min-width: 28px;
+  }
+  .how-step-title {
+    font-family: 'Literata', serif; font-size: 18px; font-weight: 700;
+    color: #FAF8F2; flex: 1; letter-spacing: -0.01em;
+  }
+  .how-step-tag {
+    font-family: 'Literata', serif; font-size: 10px; font-weight: 700;
+    color: rgba(134,239,172,0.5); letter-spacing: 0.1em; text-transform: uppercase;
+    background: rgba(134,239,172,0.08); border: 1px solid rgba(134,239,172,0.15);
+    padding: 4px 12px; border-radius: 100px; white-space: nowrap;
+  }
+  .how-step-tag.you {
+    background: rgba(250,248,242,0.1); border-color: rgba(250,248,242,0.2);
+    color: rgba(250,248,242,0.6);
+  }
+
+  /* ── RESULTS ── */
+  .results { background: var(--cream); border-top: 1px solid var(--border); padding: 72px; }
+  .results-inner { max-width: 1080px; margin: 0 auto; }
+  .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+  .result-card { border-left: 3px solid var(--green2); padding-left: 24px; }
+  .result-num {
+    font-family: 'Literata', serif; font-size: 48px; font-weight: 700;
+    color: var(--green); line-height: 1; letter-spacing: -0.03em; margin-bottom: 6px;
+  }
+  .result-client {
+    font-family: 'Literata', serif; font-size: 11px; font-weight: 700;
+    color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .result-detail {
+    font-family: 'Instrument Serif', serif; font-size: 14px;
+    color: var(--muted); line-height: 1.6;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--green); padding: 112px 72px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .cta::before {
+    content: ''; position: absolute; bottom: -150px; left: 50%;
+    transform: translateX(-50%); width: 800px; height: 500px;
+    background: radial-gradient(circle, rgba(45,106,79,0.6) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .cta h2 {
+    font-family: 'Literata', serif; font-size: clamp(40px, 5vw, 68px);
+    font-weight: 700; color: #fff; letter-spacing: -0.02em;
+    line-height: 1.05; margin-bottom: 20px;
+  }
+  .cta h2 em { font-style: italic; color: var(--accent); }
+  .cta p {
+    font-family: 'Instrument Serif', serif; font-size: 18px;
+    color: rgba(255,255,255,0.45); max-width: 460px;
+    margin: 0 auto 52px; line-height: 1.65;
+  }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #fff; color: var(--green);
+    font-family: 'Literata', serif; font-size: 17px; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 22px 64px; text-decoration: none; border-radius: 100px;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+    transition: background 0.2s, transform 0.15s;
+  }
+  .cta-btn:hover { background: var(--accent); transform: translateY(-3px); }
+  .cta-note {
+    display: block; margin-top: 20px;
+    font-family: 'Literata', serif; font-size: 12px;
+    color: rgba(255,255,255,0.25); letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  /* footer */
+  .footer {
+    background: #080f0b; padding: 24px 72px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-brand { font-family: 'Literata', serif; font-size: 16px; font-weight: 700; color: #fff; }
+  .footer-url { font-family: 'Literata', serif; font-size: 12px; color: rgba(255,255,255,0.3); }
+
+  /* fade */
+  .fade { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .fade.in { opacity: 1; transform: translateY(0); }
+
+  @media(max-width: 900px) {
+    .hero-inner, .for-who-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-card { display: none; }
+    .included-grid, .results-grid { grid-template-columns: 1fr; }
+    .hero, .for-who, .included, .how, .results, .cta { padding: 56px 24px; }
+    .footer { padding: 20px 24px; flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Bakes Media Consulting</div>
+      <h1>We Plan It.<br><em>You Execute.</em><br>90 Days.</h1>
+      <p class="hero-sub">A hands-on consulting program for business owners who are ready to invest in a content system that generates real, trackable revenue — and want the roadmap to build it themselves.</p>
+      <a href="https://speakmeet.com/discovery" class="hero-cta">Apply for a Strategy Call →</a>
+    </div>
+    <div class="hero-card fade">
+      <div class="hero-card-label">Client Results</div>
+      <div class="hero-card-stat">
+        <div class="hero-card-num accent">$50K</div>
+        <div class="hero-card-desc">JT Junk Solutions — 90 Days</div>
+      </div>
+      <div class="hero-card-stat">
+        <div class="hero-card-num accent">$9M+</div>
+        <div class="hero-card-desc">Everglades Equipment — 18 Months</div>
+      </div>
+      <div class="hero-card-stat">
+        <div class="hero-card-num accent">$245K</div>
+        <div class="hero-card-desc">Crime Scene Cleaning — 3 Months</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="for-who">
+  <div class="for-who-inner fade">
+    <div>
+      <div class="section-eyebrow">This Is For You If...</div>
+      <div class="section-title">You're Ready<br>to Invest.</div>
+      <p class="section-body">This isn't for everyone. We work with a select number of clients at a time — and we're selective about who we take on. Here's who this is built for.</p>
+      <div class="check-list">
+        <div class="check-item"><div class="check-dot"></div><span class="check-text">You're a business owner with an established offer or service</span></div>
+        <div class="check-item"><div class="check-dot"></div><span class="check-text">You're ready to invest in a content system — not just dabble</span></div>
+        <div class="check-item"><div class="check-dot"></div><span class="check-text">You want a real strategy, not generic advice</span></div>
+        <div class="check-item"><div class="check-dot"></div><span class="check-text">You're willing to show up, record, and execute the plan</span></div>
+        <div class="check-item"><div class="check-dot"></div><span class="check-text">You want measurable revenue — not just views or followers</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-eyebrow">This Is NOT For You If...</div>
+      <div class="section-title">You're Not<br>Ready Yet.</div>
+      <p class="section-body">We'd rather be straight with you now than waste your time or ours. This program won't work if any of these apply.</p>
+      <div class="x-list">
+        <div class="x-item"><div class="x-dot"></div><span class="x-text">You want someone else to do everything for you</span></div>
+        <div class="x-item"><div class="x-dot"></div><span class="x-text">You're looking for cheap content or quick views</span></div>
+        <div class="x-item"><div class="x-dot"></div><span class="x-text">You're not willing to be on camera</span></div>
+        <div class="x-item"><div class="x-dot"></div><span class="x-text">You don't have a proven offer or service to sell</span></div>
+        <div class="x-item"><div class="x-dot"></div><span class="x-text">You're not serious about executing the plan</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included">
+  <div class="included-inner fade">
+    <div class="section-eyebrow">What's Included</div>
+    <div class="section-title">Everything You Need.<br>Nothing You Don't.</div>
+    <div class="included-grid">
+      <div class="included-card">
+        <div class="included-num">1</div>
+        <div class="included-title">Full Content Strategy & Plan</div>
+        <p class="included-body">A complete 90-day content roadmap built around your business, your audience, and your revenue goals. Every video planned with purpose.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-num">2</div>
+        <div class="included-title">Weekly Calls with Tony</div>
+        <p class="included-body">Direct access every week to review performance, adjust strategy, and keep you on track. You're never guessing what to do next.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-num">3</div>
+        <div class="included-title">Script Outlines & Frameworks</div>
+        <p class="included-body">Proven video frameworks and script outlines for every piece of content — so you know exactly what to say and how to say it.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-num">4</div>
+        <div class="included-title">Thumbnail & Title Strategy</div>
+        <p class="included-body">The exact thumbnail formulas and title structures we've used to earn clicks on YouTube and rank on Google. CTR is where revenue starts.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-num">5</div>
+        <div class="included-title">Distribution Plan</div>
+        <p class="included-body">A platform-by-platform distribution system — YouTube, TikTok, and Reels — so every piece of content works across every channel.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-num">6</div>
+        <div class="included-title">Funnel & CTA Templates</div>
+        <p class="included-body">Done-for-you funnel structures and CTA templates that turn viewers into leads — and leads into booked calls and sales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="how-inner fade">
+    <div class="section-eyebrow">How It Works</div>
+    <div class="section-title" style="color:#fff;">Simple. Structured. 90 Days.</div>
+    <div class="how-steps">
+      <div class="how-step"><span class="how-step-num">01</span><span class="how-step-title">Strategy Call — We map your entire 90-day plan</span><span class="how-step-tag">Week 1</span></div>
+      <div class="how-step"><span class="how-step-num">02</span><span class="how-step-title">Content roadmap & script frameworks delivered</span><span class="how-step-tag">Week 1–2</span></div>
+      <div class="how-step"><span class="how-step-num">03</span><span class="how-step-title">You start recording — we review & give feedback</span><span class="how-step-tag how-step-tag you">You Execute</span></div>
+      <div class="how-step"><span class="how-step-num">04</span><span class="how-step-title">Weekly calls to review performance & adjust</span><span class="how-step-tag">Ongoing</span></div>
+      <div class="how-step"><span class="how-step-num">05</span><span class="how-step-title">Funnel & CTA templates deployed</span><span class="how-step-tag">Month 1–2</span></div>
+      <div class="how-step"><span class="how-step-num">06</span><span class="how-step-title">Distribution system live across all platforms</span><span class="how-step-tag">Month 2</span></div>
+      <div class="how-step"><span class="how-step-num">07</span><span class="how-step-title">Revenue tracked & attributed back to content</span><span class="how-step-tag">Day 90</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results">
+  <div class="results-inner fade">
+    <div class="section-eyebrow">What's Possible</div>
+    <div class="section-title">The System Works.<br>Here's the Proof.</div>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-num">$50K</div>
+        <div class="result-client">JT Junk Solutions — 90 Days</div>
+        <p class="result-detail">$50,000 in revenue traced directly to YouTube content. Low views. High buyer intent. The system worked before the channel ever went viral.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-num">$245K</div>
+        <div class="result-client">Crime Scene Cleaning — 3 Months</div>
+        <p class="result-detail">$245,000 in course sales over 3 months — $45,000 on day one of the Codie Sanchez collaboration. Built on 1.4M subscribers and 150M views.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-num">$9M+</div>
+        <div class="result-client">Everglades Equipment — 18 Months</div>
+        <p class="result-detail">$9,000,000 in equipment sales attributed to YouTube SEO. 46% of traffic from Google Search. One video alone drove 146K views and compounded for years.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready to Build<br><em>Your System?</em></h2>
+  <p>Pricing is given on the call — after we understand your business and confirm we're the right fit. No packages. No pressure.</p>
+  <a href="https://speakmeet.com/discovery" class="cta-btn">Apply for a Strategy Call →</a>
+  <span class="cta-note">Qualified applicants only · Pricing given on the call · Limited spots</span>
+</section>
+
+<div class="footer">
+  <span class="footer-brand">Bakes Media</span>
+  <span class="footer-url">www.bakesmedia.com</span>
+</div>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
