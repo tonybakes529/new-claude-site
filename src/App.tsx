@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { Play, Check, X, ChevronRight } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
+import { Check, X, ChevronRight } from 'lucide-react'
 
 const brand = {
   bg: '#FAF8F2',
@@ -128,7 +128,7 @@ function Hero() {
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
-        padding: '120px 24px 60px',
+        padding: '100px 24px 48px',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -140,9 +140,9 @@ function Hero() {
         className="hero-illustration"
         style={{
           position: 'absolute',
-          top: '50%',
+          top: '0',
           left: '50%',
-          transform: 'translate(-50%, -50%)',
+          transform: 'translateX(-50%)',
           maxWidth: '900px',
           width: '80%',
           opacity: 0.07,
@@ -159,8 +159,8 @@ function Hero() {
           fontSize: 'clamp(42px, 5.5vw, 80px)',
           lineHeight: 1.1,
           color: brand.text,
-          maxWidth: '900px',
-          marginBottom: '48px',
+          maxWidth: '1200px',
+          marginBottom: '24px',
           position: 'relative',
           zIndex: 1,
         }}
@@ -177,44 +177,22 @@ function Hero() {
           borderRadius: '16px',
           background: brand.cardDark,
           position: 'relative',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
           boxShadow: '0 0 60px rgba(45,106,79,0.2)',
           overflow: 'hidden',
-          cursor: 'pointer',
-          margin: '48px auto 0',
+          margin: '0 auto',
           zIndex: 1,
         }}
       >
-        <div
-          style={{
-            width: '80px',
-            height: '80px',
-            borderRadius: '50%',
-            background: 'rgba(255,255,255,0.1)',
-            backdropFilter: 'blur(12px)',
-            border: '1px solid rgba(255,255,255,0.2)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            transition: 'transform 0.2s',
-          }}
-        >
-          <Play size={32} color={brand.cream} fill={brand.cream} />
-        </div>
-        <p
-          style={{
-            position: 'absolute',
-            bottom: '20px',
-            left: '24px',
-            fontFamily: fontBody,
-            fontSize: '18px',
-            color: brand.muted,
-          }}
-        >
-          Watch: How systems turn content into revenue
-        </p>
+        <iframe
+          src="https://player.vimeo.com/video/1167378880?badge=0&autopause=0&player_id=0&app_id=58479"
+          width="100%"
+          height="100%"
+          frameBorder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          title="TONY VSL Revised"
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        />
       </div>
 
       <div
@@ -224,7 +202,7 @@ function Hero() {
           gap: '32px',
           maxWidth: '800px',
           width: '100%',
-          marginTop: '48px',
+          marginTop: '32px',
           position: 'relative',
           zIndex: 1,
         }}
@@ -317,97 +295,88 @@ function ProblemSection() {
   )
 }
 
-/* ──────────────────── THUMBNAIL PORTFOLIO ──────────────────── */
-function ThumbnailPortfolio() {
-  const thumbnails = [
-    'Junk Removal Playbook',
-    'John Deere 335P',
-    'Tractor Breakdown',
-    'Lawn Tractor vs Zero-Turn',
-    'Airbnb $500/Night',
-    'Recession Proof Cash Flow',
-    '$500,000 Growth',
-    'SDE vs EBITDA',
-    'Zero Bookings Fix',
-  ]
-
-  const gradients = [
-    'linear-gradient(135deg, rgba(27,67,50,0.6), rgba(13,31,23,0.9))',
-    'linear-gradient(225deg, rgba(45,106,79,0.5), rgba(13,31,23,0.9))',
-    'linear-gradient(45deg, rgba(27,67,50,0.4), rgba(19,42,30,0.9))',
-    'linear-gradient(180deg, rgba(45,106,79,0.5), rgba(13,31,23,0.9))',
-    'linear-gradient(315deg, rgba(27,67,50,0.6), rgba(13,31,23,0.9))',
-    'linear-gradient(90deg, rgba(45,106,79,0.4), rgba(19,42,30,0.9))',
-    'linear-gradient(160deg, rgba(27,67,50,0.5), rgba(13,31,23,0.9))',
-    'linear-gradient(200deg, rgba(45,106,79,0.6), rgba(13,31,23,0.9))',
-    'linear-gradient(270deg, rgba(27,67,50,0.4), rgba(19,42,30,0.9))',
+/* ──────────────────── VSL SHOWCASE ──────────────────── */
+function VSLShowcase() {
+  const videos = [
+    {
+      id: 'vsl-jt-junk',
+      src: 'https://player.vimeo.com/video/1170310302?badge=0&autopause=0&player_id=0&app_id=58479',
+      title: 'testimonial-video',
+      name: 'Tanner & Jakie Hurst',
+      company: 'JT Junk Solutions',
+      quote: '\u201CWe can directly track $50,000 in revenue to Tony and the Bakes Media Team\u201D',
+    },
+    {
+      id: 'vsl-laura',
+      src: 'https://player.vimeo.com/video/1170310322?badge=0&autopause=0&player_id=0&app_id=58479',
+      title: 'laura-testimonial-video',
+      name: 'Laura Spaulding',
+      company: 'Crime Scene Cleaning',
+      quote: '\u201CHe got me 13,000,000 views on my first video\u201D',
+    },
   ]
 
   return (
-    <section style={{ background: brand.dark, padding: '40px 24px 80px' }}>
-      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-        <p
-          style={{
-            fontFamily: fontHeading,
-            fontSize: '13px',
-            textTransform: 'uppercase',
-            letterSpacing: '3px',
-            color: brand.muted,
-            textAlign: 'center',
-            marginBottom: '32px',
-          }}
-        >
-          SYSTEMS I'VE BUILT
-        </p>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-            gap: '16px',
-          }}
-        >
-          {thumbnails.map((title, i) => (
+    <section style={{ background: brand.dark, padding: '40px 24px' }}>
+      <div style={{
+        maxWidth: '1100px',
+        margin: '0 auto',
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '32px',
+        flexWrap: 'wrap',
+      }}>
+        {videos.map((v) => (
+          <div key={v.id} style={{ width: '100%', maxWidth: '280px', textAlign: 'center' }}>
+            {/* Video container */}
             <div
-              key={title}
               style={{
-                aspectRatio: '16/9',
-                background: gradients[i],
-                borderRadius: '12px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '24px',
+                width: '100%',
+                aspectRatio: '9/16',
+                background: brand.cardDark,
+                border: `2px solid ${brand.secondary}`,
+                borderRadius: '16px',
+                boxShadow: '0 0 60px rgba(45,106,79,0.2)',
+                overflow: 'hidden',
+                position: 'relative',
               }}
             >
-              <p
-                style={{
+              <iframe
+                src={v.src}
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title={v.title}
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+              />
+            </div>
+            {/* Caption */}
+            <div style={{ marginTop: '16px' }}>
+              {v.name && (
+                <p style={{
                   fontFamily: fontHeading,
-                  fontWeight: 700,
-                  fontSize: '20px',
+                  fontWeight: 600,
+                  fontSize: '15px',
                   color: brand.cream,
-                  textAlign: 'center',
-                }}
-              >
-                {title}
+                  marginBottom: '4px',
+                }}>
+                  {v.name}{v.company && ` \u2014 ${v.company}`}
+                </p>
+              )}
+              <p style={{
+                fontFamily: fontBody,
+                fontStyle: 'italic',
+                fontSize: '16px',
+                color: 'rgba(250,248,242,0.6)',
+                lineHeight: 1.5,
+              }}>
+                {v.quote}
               </p>
             </div>
-          ))}
-        </div>
-        <p
-          style={{
-            fontFamily: fontBody,
-            fontSize: '18px',
-            color: brand.muted,
-            textAlign: 'center',
-            marginTop: '32px',
-            maxWidth: '600px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}
-        >
-          Every thumbnail is part of a larger system — scripted, produced, and connected to a
-          conversion funnel
-        </p>
+          </div>
+        ))}
       </div>
     </section>
   )
@@ -419,6 +388,7 @@ function CaseStudies() {
     {
       header: 'Full System → $50K+ Revenue',
       name: 'JT Junk Solutions',
+      link: '#case-jt-junk',
       stats: [
         '$50K+ Coaching Sales from YouTube Funnel',
         '90 Qualified Sales Calls via Automated Pipeline',
@@ -431,6 +401,7 @@ function CaseStudies() {
     {
       header: 'Content Engine → $200K Revenue',
       name: 'Crime Scene Cleaning',
+      link: '#case-crime-scene',
       stats: [
         '$200K in Added Revenue from System',
         '140,000,000 Total Views',
@@ -441,6 +412,7 @@ function CaseStudies() {
     {
       header: 'SEO Infrastructure → $8M Sales',
       name: 'John Deere',
+      link: '#case-john-deere',
       stats: [
         '$8M in Sales via SEO Content System',
         '2.3M+ Views from Search-Based Strategy',
@@ -452,7 +424,7 @@ function CaseStudies() {
   ]
 
   return (
-    <section id="proof" style={{ background: brand.bg, padding: '100px 24px' }}>
+    <section id="proof" style={{ background: brand.dark, padding: '100px 24px' }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '64px' }}>
           <p
@@ -472,7 +444,7 @@ function CaseStudies() {
               fontFamily: fontHeading,
               fontWeight: 700,
               fontSize: 'clamp(32px, 4vw, 52px)',
-              color: brand.text,
+              color: brand.cream,
               marginBottom: '16px',
             }}
           >
@@ -504,17 +476,17 @@ function CaseStudies() {
               style={{
                 borderRadius: '16px',
                 overflow: 'hidden',
-                border: `1px solid ${brand.border}`,
-                background: '#fff',
+                border: `1px solid rgba(45,106,79,0.3)`,
+                background: brand.cardDark,
                 transition: 'all 0.2s',
                 cursor: 'default',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = brand.primary
-                e.currentTarget.style.boxShadow = '0 8px 32px rgba(27,67,50,0.1)'
+                e.currentTarget.style.borderColor = brand.secondary
+                e.currentTarget.style.boxShadow = '0 8px 32px rgba(45,106,79,0.2)'
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = brand.border
+                e.currentTarget.style.borderColor = 'rgba(45,106,79,0.3)'
                 e.currentTarget.style.boxShadow = 'none'
               }}
             >
@@ -542,13 +514,13 @@ function CaseStudies() {
                     fontFamily: fontHeading,
                     fontWeight: 600,
                     fontSize: '18px',
-                    color: brand.text,
+                    color: brand.cream,
                     marginBottom: '16px',
                   }}
                 >
                   {c.name}
                 </p>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px' }}>
                   {c.stats.map((stat) => (
                     <li
                       key={stat}
@@ -559,7 +531,7 @@ function CaseStudies() {
                         marginBottom: '12px',
                         fontFamily: fontBody,
                         fontSize: '18px',
-                        color: brand.text,
+                        color: 'rgba(250,248,242,0.8)',
                         lineHeight: 1.5,
                       }}
                     >
@@ -572,6 +544,27 @@ function CaseStudies() {
                     </li>
                   ))}
                 </ul>
+                <a
+                  href={c.link}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    fontFamily: fontHeading,
+                    fontWeight: 600,
+                    fontSize: '15px',
+                    color: brand.cream,
+                    background: brand.primary,
+                    padding: '10px 20px',
+                    borderRadius: '8px',
+                    textDecoration: 'none',
+                    transition: 'background 0.2s',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = brand.secondary)}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = brand.primary)}
+                >
+                  Read the Full Case Study <ChevronRight size={16} />
+                </a>
               </div>
             </div>
           ))}
@@ -581,215 +574,10 @@ function CaseStudies() {
   )
 }
 
-/* ──────────────────── BUSINESS OWNER + CREATIVE/AI ──────────────────── */
-function BusinessOwnerSection() {
-  const creativeLead = [
-    { title: 'Strategy & Positioning', desc: 'Your offer, your story, your market — shaped by a decade of experience, not a prompt.' },
-    { title: 'Scripting & Storytelling', desc: 'Crafted by writers who understand persuasion, pacing, and how to move a viewer to action.' },
-    { title: 'Production & Editing', desc: 'Built by editors who know how to hold attention, build trust, and deliver a message — not just cut footage.' },
-    { title: 'Thumbnail Design', desc: 'Designed by creatives who understand what stops the scroll — not AI-generated filler.' },
-  ]
-
-  const aiAccelerates = [
-    { title: 'Research & Topic Intelligence', desc: 'AI surfaces high-intent topics, competitor gaps, and search patterns — so the creative team builds on data, not guesses.' },
-    { title: 'SEO & Metadata Optimization', desc: 'Titles, descriptions, and tags optimized through AI models trained on what ranks — then refined by human judgment.' },
-    { title: 'Automated Funnel Sequences', desc: 'Email flows, CTA triggers, and follow-up sequences that nurture leads without manual effort — designed once, optimized continuously.' },
-    { title: 'Performance Intelligence', desc: 'AI identifies which content drives revenue, where funnels leak, and what to double down on — so every decision is backed by signal.' },
-  ]
-
-  return (
-    <section style={{ background: brand.dark, padding: '100px 24px' }}>
-      <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-        <h2
-          style={{
-            fontFamily: fontHeading,
-            fontWeight: 700,
-            fontSize: 'clamp(32px, 4vw, 52px)',
-            lineHeight: 1.15,
-            color: brand.cream,
-            marginBottom: '24px',
-          }}
-        >
-          You Don't Need a YouTube Strategy.{' '}
-          <span style={{ color: brand.secondary }}>You Need Revenue Infrastructure.</span>
-        </h2>
-        <p
-          style={{
-            fontFamily: fontBody,
-            fontSize: '22px',
-            color: 'rgba(250,248,242,0.7)',
-            maxWidth: '700px',
-            margin: '0 auto 64px',
-            lineHeight: 1.7,
-          }}
-        >
-          YouTube strategies are for creators chasing views. Businesses need systems — where
-          content feeds funnels, funnels feed offers, and offers feed measurable, compounding
-          revenue.
-        </p>
-      </div>
-
-      <div
-        style={{
-          maxWidth: '1100px',
-          margin: '0 auto',
-          border: `2px solid ${brand.secondary}`,
-          borderRadius: '20px',
-          background: `linear-gradient(180deg, ${brand.cardDark}, ${brand.dark})`,
-          padding: 'clamp(32px, 4vw, 64px)',
-        }}
-      >
-        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-          <p
-            style={{
-              fontFamily: fontHeading,
-              fontSize: '13px',
-              textTransform: 'uppercase',
-              letterSpacing: '3px',
-              color: brand.muted,
-              marginBottom: '16px',
-            }}
-          >
-            CREATIVE SKILL + AI IMPLEMENTATION
-          </p>
-          <h3
-            style={{
-              fontFamily: fontHeading,
-              fontWeight: 700,
-              fontSize: 'clamp(26px, 3.5vw, 38px)',
-              color: brand.cream,
-              marginBottom: '16px',
-            }}
-          >
-            A Creative Team That Knows How to Implement AI.
-          </h3>
-          <p
-            style={{
-              fontFamily: fontBody,
-              fontSize: '20px',
-              color: 'rgba(250,248,242,0.7)',
-              maxWidth: '750px',
-              margin: '0 auto',
-              lineHeight: 1.7,
-            }}
-          >
-            Anyone can subscribe to AI tools. The difference is knowing where they belong in the
-            process and where they don't. We lead with creative strategy and production skill —
-            then implement AI as precision tools to accelerate research, optimize distribution,
-            and automate the conversion layers that turn content into revenue.
-          </p>
-        </div>
-
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '48px',
-          }}
-        >
-          <div style={{ backgroundColor: '#FFFFFF', borderRadius: '16px', padding: '32px' }}>
-            <img
-              src="/illustrations/creative-human.png"
-              alt=""
-              aria-hidden="true"
-              className="section-illustration"
-              style={{
-                display: 'block',
-                margin: '0 auto 24px',
-                height: '200px',
-                objectFit: 'contain',
-                opacity: 1,
-                borderRadius: '12px',
-              }}
-            />
-            <p
-              style={{
-                fontFamily: fontHeading,
-                fontSize: '13px',
-                textTransform: 'uppercase',
-                letterSpacing: '3px',
-                color: brand.secondary,
-                marginBottom: '24px',
-              }}
-            >
-              WHERE CREATIVITY LEADS
-            </p>
-            {creativeLead.map((item) => (
-              <div key={item.title} style={{ marginBottom: '24px' }}>
-                <p style={{ fontFamily: fontHeading, fontWeight: 600, fontSize: '20px', color: brand.dark, marginBottom: '4px' }}>
-                  {item.title}
-                </p>
-                <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(13,31,23,0.65)', lineHeight: 1.5 }}>
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div style={{ backgroundColor: '#FFFFFF', borderRadius: '16px', padding: '32px' }}>
-            <img
-              src="/illustrations/ai-machine.png"
-              alt=""
-              aria-hidden="true"
-              className="section-illustration"
-              style={{
-                display: 'block',
-                margin: '0 auto 24px',
-                height: '200px',
-                objectFit: 'contain',
-                opacity: 1,
-                borderRadius: '12px',
-              }}
-            />
-            <p
-              style={{
-                fontFamily: fontHeading,
-                fontSize: '13px',
-                textTransform: 'uppercase',
-                letterSpacing: '3px',
-                color: brand.secondary,
-                marginBottom: '24px',
-              }}
-            >
-              WHERE AI ACCELERATES
-            </p>
-            {aiAccelerates.map((item) => (
-              <div key={item.title} style={{ marginBottom: '24px' }}>
-                <p style={{ fontFamily: fontHeading, fontWeight: 600, fontSize: '20px', color: brand.dark, marginBottom: '4px' }}>
-                  {item.title}
-                </p>
-                <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(13,31,23,0.65)', lineHeight: 1.5 }}>
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <p
-          style={{
-            fontFamily: fontBody,
-            fontStyle: 'italic',
-            fontSize: '20px',
-            color: 'rgba(250,248,242,0.7)',
-            textAlign: 'center',
-            marginTop: '48px',
-            maxWidth: '700px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}
-        >
-          The creative work is what makes your brand worth watching. AI is what makes the system
-          behind it scale.
-        </p>
-      </div>
-    </section>
-  )
-}
-
 /* ──────────────────── COMPARISON CARDS ──────────────────── */
 function ComparisonCards() {
   return (
-    <section style={{ background: brand.dark, padding: '100px 24px' }}>
+    <section style={{ background: brand.bg, padding: '100px 24px' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
         {/* Set 1 */}
         <h2
@@ -797,7 +585,7 @@ function ComparisonCards() {
             fontFamily: fontHeading,
             fontWeight: 700,
             fontSize: 'clamp(26px, 3.5vw, 38px)',
-            color: brand.cream,
+            color: brand.text,
             textAlign: 'center',
             marginBottom: '40px',
           }}
@@ -812,35 +600,35 @@ function ComparisonCards() {
             marginBottom: '80px',
           }}
         >
-          <div style={{ background: brand.cardDark, borderRadius: '16px', padding: '32px', border: '1px solid rgba(220,60,60,0.2)' }}>
-            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.cream, marginBottom: '24px' }}>
+          <div style={{ background: '#fff', borderRadius: '16px', padding: '32px', border: '1px solid rgba(220,60,60,0.2)' }}>
+            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.text, marginBottom: '24px' }}>
               The Common Approach
             </h3>
             {[
               'Hire an editor and hope content alone generates leads',
               'Post videos with no funnel, no offer, and no conversion path',
-              'Let AI generate everything and call it a strategy',
+              'Outsource to cheap freelancers and call it a strategy',
               'Try to piece together strategy, editing, SEO, and sales yourself',
             ].map((item) => (
               <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
                 <X size={16} color={brand.red} style={{ flexShrink: 0, marginTop: '3px' }} />
-                <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
+                <p style={{ fontFamily: fontBody, fontSize: '18px', color: brand.text, lineHeight: 1.5 }}>{item}</p>
               </div>
             ))}
           </div>
-          <div style={{ background: brand.cardDark, borderRadius: '16px', padding: '32px', border: '1px solid rgba(220,60,60,0.2)' }}>
+          <div style={{ background: '#fff', borderRadius: '16px', padding: '32px', border: '1px solid rgba(220,60,60,0.2)' }}>
             <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.red, marginBottom: '24px' }}>
               Why It Fails
             </h3>
             {[
               "Content without a system is just noise — views don't pay bills, conversions do",
               'Without a funnel, every viewer is a dead end with no path to buy',
-              "AI without creative skill and strategy produces volume, not value. Tools don't replace the ability to script, position, and convert.",
+              "Cheap content without strategy produces volume, not value. Outsourcing doesn't replace the ability to script, position, and convert.",
               'Doing it all yourself means nothing gets done at the level it needs to perform',
             ].map((item) => (
               <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
                 <X size={16} color={brand.red} style={{ flexShrink: 0, marginTop: '3px' }} />
-                <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
+                <p style={{ fontFamily: fontBody, fontSize: '18px', color: brand.text, lineHeight: 1.5 }}>{item}</p>
               </div>
             ))}
           </div>
@@ -852,7 +640,7 @@ function ComparisonCards() {
             fontFamily: fontHeading,
             fontWeight: 700,
             fontSize: 'clamp(26px, 3.5vw, 38px)',
-            color: brand.cream,
+            color: brand.text,
             textAlign: 'center',
             marginBottom: '40px',
           }}
@@ -866,8 +654,8 @@ function ComparisonCards() {
             gap: '24px',
           }}
         >
-          <div style={{ background: brand.cardDark, borderRadius: '16px', padding: '32px', border: '1px solid rgba(45,106,79,0.3)' }}>
-            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.cream, marginBottom: '24px' }}>
+          <div style={{ background: '#fff', borderRadius: '16px', padding: '32px', border: '1px solid rgba(45,106,79,0.3)' }}>
+            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.text, marginBottom: '24px' }}>
               The Infrastructure
             </h3>
             {[
@@ -875,28 +663,28 @@ function ComparisonCards() {
               'Funnels that capture, nurture, and convert — automatically',
               'Offers engineered to close, not just attract',
               'Full execution — scripting, production, editing, packaging, SEO, distribution',
-              'AI implemented where it accelerates — not where it replaces skill',
+              'Data-driven decisions at every step — not guesswork',
             ].map((item) => (
               <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
                 <Check size={16} color={brand.secondary} style={{ flexShrink: 0, marginTop: '3px' }} />
-                <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
+                <p style={{ fontFamily: fontBody, fontSize: '18px', color: brand.text, lineHeight: 1.5 }}>{item}</p>
               </div>
             ))}
           </div>
-          <div style={{ background: brand.cardDark, borderRadius: '16px', padding: '32px', border: '1px solid rgba(45,106,79,0.3)' }}>
-            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.cream, marginBottom: '24px' }}>
+          <div style={{ background: '#fff', borderRadius: '16px', padding: '32px', border: '1px solid rgba(45,106,79,0.3)' }}>
+            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.text, marginBottom: '24px' }}>
               What That Means For You
             </h3>
             {[
               'A revenue system — not a content calendar',
               'Every video tied to a conversion event',
               'Prospects who arrive pre-sold through your content',
-              "End-to-end management with AI in the toolkit, not the driver's seat",
+              'End-to-end management — strategy to execution, fully handled',
               'Outreach and podcast placements that extend your reach beyond YouTube',
             ].map((item) => (
               <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
                 <Check size={16} color={brand.secondary} style={{ flexShrink: 0, marginTop: '3px' }} />
-                <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
+                <p style={{ fontFamily: fontBody, fontSize: '18px', color: brand.text, lineHeight: 1.5 }}>{item}</p>
               </div>
             ))}
           </div>
@@ -910,11 +698,11 @@ function ComparisonCards() {
 function ProcessSection() {
   const steps = [
     { num: 1, title: 'Funnel Architecture', desc: 'We audit your offer, map your sales process, and design the conversion path that turns viewers into buyers.', img: '/illustrations/step1-funnel.png' },
-    { num: 2, title: 'Research & Ideation', desc: 'AI surfaces high-intent topics and competitor gaps. The creative team turns raw data into buyer-attracting angles.', img: '/illustrations/step2-research.png' },
-    { num: 3, title: 'Scripting & Structure', desc: 'AI informs the data layer — but the storytelling, hooks, and persuasion come from writers with real experience.', img: '/illustrations/step3-scripting.png' },
-    { num: 4, title: 'Production & Editing', desc: 'No AI shortcuts here. Skilled editors build pacing, trust, and retention — the things that keep people watching and buying.', img: '/illustrations/step4-production.png' },
-    { num: 5, title: 'Packaging & CTR', desc: 'Creatives design the thumbnails and titles. AI helps test variations and optimize click-through rates at scale.', img: '/illustrations/step5-thumbnails.png' },
-    { num: 6, title: 'SEO & Distribution', desc: 'AI optimizes metadata and distribution timing. Content is structured to rank in YouTube and Google search, compounding over time.', img: '/illustrations/step6-seo.png' },
+    { num: 2, title: 'Research & Ideation', desc: 'We dig into search data, competitor gaps, and audience behavior to find the topics that attract buyers — not just viewers.', img: '/illustrations/step2-research.png' },
+    { num: 3, title: 'Scripting & Structure', desc: 'Every script is built by writers who understand hooks, persuasion, and pacing — structured to hold attention and drive action.', img: '/illustrations/step3-scripting.png' },
+    { num: 4, title: 'Production & Editing', desc: 'Skilled editors build pacing, trust, and retention into every cut — the things that keep people watching and buying.', img: '/illustrations/step4-production.png' },
+    { num: 5, title: 'Packaging & CTR', desc: 'Thumbnails and titles designed by creatives who understand what earns the click — then tested and refined based on real performance data.', img: '/illustrations/step5-thumbnails.png' },
+    { num: 6, title: 'SEO & Distribution', desc: 'Content structured to rank in both YouTube and Google search. Metadata, timing, and distribution dialed in so every video compounds over time.', img: '/illustrations/step6-seo.png' },
   ]
 
   return (
@@ -1033,144 +821,456 @@ function ProcessSection() {
 
 /* ──────────────────── REVENUE ENGINE WHEEL ──────────────────── */
 function RevenueEngine() {
-  const nodes = [
-    'Funnel Architecture',
-    'Research & Ideation',
-    'Script & Structure',
-    'You Record',
-    'Edit & Produce',
-    'Packaging & CTR',
-    'SEO & Distribution',
-    'Automated Funnels',
-    'Tracking & Attribution',
+  const [hovered, setHovered] = useState<number | null>(null)
+
+  const steps = [
+    { number: '01', title: 'Funnel Architecture', us: true },
+    { number: '02', title: 'Research & Ideation', us: true },
+    { number: '03', title: 'Script & Structure', us: true },
+    { number: '04', title: 'You Record.', you: true },
+    { number: '05', title: 'Edit & Produce', us: true },
+    { number: '06', title: 'Packaging & CTR', us: true },
+    { number: '07', title: 'SEO & Distribution', us: true },
+    { number: '08', title: 'Automated Funnels', us: true },
+    { number: '09', title: 'Tracking & Attribution', us: true },
   ]
 
   return (
-    <section id="system" style={{ background: brand.dark, padding: '100px 24px' }}>
-      <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
-        <h2 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: 'clamp(32px, 4vw, 52px)', color: brand.cream, marginBottom: '16px' }}>
-          Content Is the Entry Point.{' '}
-          <span style={{ color: brand.secondary }}>The System Is What Converts.</span>
-        </h2>
-        <p style={{ fontFamily: fontBody, fontSize: '22px', color: 'rgba(250,248,242,0.7)', maxWidth: '650px', margin: '0 auto 64px', lineHeight: 1.7 }}>
-          Creative skill builds trust. Automation builds infrastructure. Together, they build revenue.
-        </p>
+    <section id="system" style={{ background: brand.dark, padding: '100px 24px', position: 'relative', overflow: 'hidden' }}>
+      {/* Background glow */}
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45,106,79,0.4) 0%, transparent 65%)',
+      }} />
 
-        <div
-          className="engine-wheel"
-          style={{
-            position: 'relative',
-            width: '100%',
-            maxWidth: '600px',
-            aspectRatio: '1',
-            margin: '0 auto',
-          }}
-        >
-          <div
-            style={{
-              position: 'absolute',
-              inset: '0',
-              borderRadius: '50%',
-              border: `2px solid ${brand.secondary}`,
-              boxShadow: '0 0 40px rgba(45,106,79,0.15), inset 0 0 40px rgba(45,106,79,0.05)',
-            }}
-          />
-          <div
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: '180px',
-              height: '180px',
-              borderRadius: '50%',
-              background: brand.primary,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '16px',
-              zIndex: 2,
-            }}
-          >
-            <p style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '1.5px', color: brand.cream, textAlign: 'center', lineHeight: 1.3, marginBottom: '4px' }}>
-              REVENUE INFRASTRUCTURE ENGINE
-            </p>
-            <p style={{ fontFamily: fontBody, fontSize: '11px', color: 'rgba(250,248,242,0.6)', textTransform: 'uppercase', letterSpacing: '1px' }}>
-              CREATIVE + AI + SYSTEMS
-            </p>
+      <div style={{ maxWidth: '700px', margin: '0 auto', position: 'relative' }}>
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '72px' }}>
+          <span style={{
+            display: 'inline-block',
+            fontFamily: fontHeading,
+            fontSize: '13px',
+            fontWeight: 600,
+            textTransform: 'uppercase',
+            letterSpacing: '3px',
+            color: brand.secondary,
+            border: `1px solid ${brand.secondary}`,
+            borderRadius: '999px',
+            padding: '6px 20px',
+            marginBottom: '24px',
+          }}>
+            The Full System
+          </span>
+
+          <h2 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: 'clamp(32px, 4vw, 52px)', color: brand.cream, marginBottom: '16px', lineHeight: 1.05, letterSpacing: '-0.02em' }}>
+            Content Is the Entry Point.{' '}
+            <span style={{ color: brand.secondary }}>The System Is What Converts.</span>
+          </h2>
+
+          <p style={{ fontFamily: fontBody, fontSize: '22px', color: 'rgba(250,248,242,0.7)', maxWidth: '650px', margin: '0 auto', lineHeight: 1.7 }}>
+            We handle 8 of the 9 steps. You handle one — recording.
+            Everything else is engineered, automated, and optimized by us.
+          </p>
+        </div>
+
+        {/* Legend */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '24px', justifyContent: 'center', marginBottom: '32px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: brand.secondary }} />
+            <span style={{ fontFamily: fontHeading, fontSize: '11px', fontWeight: 600, color: 'rgba(250,248,242,0.4)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+              Bakes Media
+            </span>
           </div>
-          {nodes.map((node, i) => {
-            const angle = (i / nodes.length) * 2 * Math.PI - Math.PI / 2
-            const radius = 42
-            const x = 50 + radius * Math.cos(angle)
-            const y = 50 + radius * Math.sin(angle)
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: brand.cream }} />
+            <span style={{ fontFamily: fontHeading, fontSize: '11px', fontWeight: 600, color: 'rgba(250,248,242,0.4)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+              You
+            </span>
+          </div>
+        </div>
+
+        {/* Steps */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+          {steps.map((step, i) => {
+            const isYou = step.you === true
+            const isHovered = hovered === i
             return (
               <div
-                key={node}
+                key={step.number}
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
                 style={{
-                  position: 'absolute',
-                  left: `${x}%`,
-                  top: `${y}%`,
-                  transform: 'translate(-50%, -50%)',
-                  background: brand.cardDark,
-                  border: `1px solid ${brand.secondary}`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '24px',
+                  padding: isYou ? '32px 40px' : '22px 40px',
+                  background: isYou
+                    ? 'rgba(250,248,242,0.09)'
+                    : isHovered
+                      ? 'rgba(45,106,79,0.22)'
+                      : 'rgba(255,255,255,0.03)',
+                  border: isYou
+                    ? '1px solid rgba(250,248,242,0.18)'
+                    : `1px solid ${isHovered ? 'rgba(45,106,79,0.4)' : 'rgba(255,255,255,0.05)'}`,
                   borderRadius: '10px',
-                  padding: '8px 14px',
-                  zIndex: 3,
-                  whiteSpace: 'nowrap',
+                  transition: 'background 0.2s ease',
+                  cursor: 'default',
+                  position: 'relative',
+                  overflow: 'hidden',
                 }}
               >
-                <p style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '13px', color: brand.cream }}>
-                  {node}
-                </p>
+                {/* Accent bar on left */}
+                <div style={{
+                  position: 'absolute', left: 0, top: 0, bottom: 0, width: '3px',
+                  background: isYou ? brand.cream : isHovered ? brand.secondary : 'rgba(45,106,79,0.2)',
+                  borderRadius: '10px 0 0 10px',
+                  transition: 'background 0.2s ease',
+                }} />
+
+                {/* Number */}
+                <span style={{
+                  fontFamily: fontHeading, fontSize: '11px', fontWeight: 700,
+                  color: isYou ? 'rgba(250,248,242,0.3)' : 'rgba(45,106,79,0.5)',
+                  letterSpacing: '0.1em', minWidth: '28px', paddingLeft: '12px',
+                }}>
+                  {step.number}
+                </span>
+
+                {/* Title */}
+                <span style={{
+                  fontFamily: fontHeading,
+                  fontSize: isYou ? '32px' : '22px',
+                  fontWeight: 700,
+                  color: isYou ? brand.cream : 'rgba(250,248,242,0.9)',
+                  letterSpacing: isYou ? '-0.02em' : '-0.01em',
+                  flex: 1,
+                  transition: 'color 0.2s',
+                }}>
+                  {step.title}
+                </span>
+
+                {/* Owner badge */}
+                {isYou ? (
+                  <span style={{
+                    background: brand.cream, color: brand.dark,
+                    fontFamily: fontHeading, fontSize: '11px', fontWeight: 700,
+                    letterSpacing: '0.12em', textTransform: 'uppercase',
+                    padding: '7px 20px', borderRadius: '999px', whiteSpace: 'nowrap',
+                  }}>
+                    ← Your Only Job
+                  </span>
+                ) : (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{
+                      width: '8px', height: '8px', borderRadius: '2px',
+                      background: brand.secondary, opacity: isHovered ? 1 : 0.4,
+                      transition: 'opacity 0.2s',
+                    }} />
+                    <span style={{
+                      fontFamily: fontHeading, fontSize: '11px', fontWeight: 600,
+                      color: isHovered ? brand.secondary : 'rgba(45,106,79,0.5)',
+                      letterSpacing: '0.1em', textTransform: 'uppercase',
+                      transition: 'color 0.2s',
+                    }}>
+                      Us
+                    </span>
+                  </div>
+                )}
               </div>
             )
           })}
+        </div>
+
+        {/* Bottom summary */}
+        <div style={{
+          marginTop: '48px',
+          background: brand.cardDark,
+          border: '1px solid rgba(45,106,79,0.3)',
+          borderRadius: '12px',
+          padding: '32px 40px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '32px',
+          flexWrap: 'wrap',
+        }}>
+          <div style={{ display: 'flex', gap: '48px', flexWrap: 'wrap' }}>
+            <div>
+              <div style={{ fontFamily: fontHeading, fontSize: '44px', fontWeight: 700, color: brand.secondary, lineHeight: 1, marginBottom: '4px' }}>
+                8
+              </div>
+              <div style={{ fontFamily: fontHeading, fontSize: '11px', fontWeight: 600, color: 'rgba(250,248,242,0.4)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                Steps We Own
+              </div>
+            </div>
+            <div>
+              <div style={{ fontFamily: fontHeading, fontSize: '44px', fontWeight: 700, color: brand.cream, lineHeight: 1, marginBottom: '4px' }}>
+                1
+              </div>
+              <div style={{ fontFamily: fontHeading, fontSize: '11px', fontWeight: 600, color: 'rgba(250,248,242,0.4)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                Step You Own
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <p style={{
+                fontFamily: fontBody, fontStyle: 'italic',
+                fontSize: '18px', color: 'rgba(250,248,242,0.5)', lineHeight: 1.5, maxWidth: '280px',
+              }}>
+                "You record. We do the rest."
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="#cta"
+            style={{
+              display: 'inline-block',
+              fontFamily: fontBody,
+              fontSize: '20px',
+              color: brand.cream,
+              background: brand.primary,
+              padding: '10px 24px',
+              borderRadius: '8px',
+              textDecoration: 'none',
+              transition: 'all 0.2s',
+              whiteSpace: 'nowrap',
+              flexShrink: 0,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = brand.secondary
+              e.currentTarget.style.transform = 'translateY(-2px)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = brand.primary
+              e.currentTarget.style.transform = 'translateY(0)'
+            }}
+          >
+            Book a Strategy Call →
+          </a>
         </div>
       </div>
     </section>
   )
 }
 
-/* ──────────────────── FINAL COMPARISON ──────────────────── */
+/* ──────────────────── FAQ + COMPARISON ──────────────────── */
 function FinalComparison() {
+  const faqs: { question: string; hasAudio?: boolean; videoUrl?: string; buttonText?: string; buttonHref?: string }[] = [
+    {
+      question: '\u201CI\u2019ve been burned by a content agency before.\u201D Why won\u2019t you do the same thing to me?',
+      hasAudio: true,
+      videoUrl: 'https://player.vimeo.com/video/1170340336?h=be83632c9c&badge=0&autopause=0&player_id=0&app_id=58479',
+    },
+    {
+      question: '\u201CViews don\u2019t equal money \u2014 how does this actually generate revenue?\u201D',
+      videoUrl: 'https://player.vimeo.com/video/1170340184?h=dc4a4296da&badge=0&autopause=0&player_id=0&app_id=58479',
+      buttonText: 'See How It Works',
+      buttonHref: 'https://bakesmedia.vercel.app/how-it-works.html',
+    },
+    {
+      question: '\u201CHow long until I actually see results?\u201D',
+      videoUrl: 'https://player.vimeo.com/video/1170340218?h=c04da688b6&badge=0&autopause=0&player_id=0&app_id=58479',
+      buttonText: 'See Our Timeline',
+      buttonHref: 'https://bakesmedia.vercel.app/90-day-timeline.html',
+    },
+    {
+      question: '\u201CHow much does it cost?\u201D',
+      videoUrl: 'https://player.vimeo.com/video/1170340245?h=8fc867e63f&badge=0&autopause=0&player_id=0&app_id=58479',
+      buttonText: 'View Pricing',
+      buttonHref: 'https://bakesmedia.vercel.app/consulting.html',
+    },
+    {
+      question: '\u201CCan YouTube really work for my type of business?\u201D',
+      videoUrl: 'https://player.vimeo.com/video/1170340378?badge=0&autopause=0&player_id=0&app_id=58479',
+      buttonText: 'See Case Studies',
+      buttonHref: '#proof',
+    },
+    {
+      question: '\u201CI\u2019ve been posting content and nothing happens.\u201D',
+      videoUrl: 'https://player.vimeo.com/video/1170340299?h=80fcfe6867&badge=0&autopause=0&player_id=0&app_id=58479',
+      buttonText: 'Learn Our Method',
+      buttonHref: 'https://bakesmedia.vercel.app/how-it-works.html',
+    },
+  ]
+
   return (
-    <section style={{ background: brand.dark, padding: '80px 24px' }}>
-      <div style={{ maxWidth: '900px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
-        <div style={{ background: brand.cardDark, borderRadius: '16px', padding: '32px', border: '1px solid rgba(220,60,60,0.2)' }}>
-          <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.cream, marginBottom: '24px' }}>
-            Content Without Infrastructure
-          </h3>
-          {[
-            'Views that go nowhere — disconnected from any revenue path',
-            'No path for a viewer to buy, book, or subscribe',
-            'Manual follow-up that drains your time and loses leads',
-            'Re-explaining your offer on every single call',
-            'Starting over every month — no compounding, no momentum',
-          ].map((item) => (
-            <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
-              <X size={16} color={brand.red} style={{ flexShrink: 0, marginTop: '3px' }} />
-              <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
+    <section style={{ background: brand.bg, padding: '80px 24px' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        {/* Section heading */}
+        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+          <h2 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: 'clamp(32px, 4vw, 52px)', color: brand.text, marginBottom: '16px' }}>
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        {/* FAQ 3×2 grid */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '24px',
+          marginBottom: '64px',
+        }}>
+          {faqs.map((faq, i) => (
+            <div
+              key={i}
+              style={{
+                background: '#fff',
+                borderRadius: '16px',
+                padding: '20px',
+                border: `1px solid ${brand.border}`,
+                transition: 'all 0.2s',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '12px',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = brand.secondary
+                e.currentTarget.style.boxShadow = '0 4px 20px rgba(45,106,79,0.1)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = brand.border
+                e.currentTarget.style.boxShadow = 'none'
+              }}
+            >
+              {/* Question */}
+              <p style={{
+                fontFamily: fontHeading,
+                fontWeight: 600,
+                fontSize: '15px',
+                color: brand.text,
+                lineHeight: 1.4,
+                minHeight: '63px',
+              }}>
+                {faq.question}
+              </p>
+
+              {/* Video — fixed 1:1 aspect ratio, edge-to-edge */}
+              <div style={{
+                width: '100%',
+                aspectRatio: '1 / 1',
+                borderRadius: '8px',
+                overflow: 'hidden',
+                position: 'relative',
+                background: brand.dark,
+              }}>
+                {faq.videoUrl ? (
+                  <iframe
+                    src={faq.videoUrl}
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    title={`faq-video-${i}`}
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+                  />
+                ) : (
+                  <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '50px',
+                    height: '50px',
+                    borderRadius: '50%',
+                    background: 'rgba(250,248,242,0.1)',
+                    border: '2px solid rgba(250,248,242,0.3)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                    <div style={{
+                      width: 0,
+                      height: 0,
+                      borderTop: '8px solid transparent',
+                      borderBottom: '8px solid transparent',
+                      borderLeft: '14px solid rgba(250,248,242,0.5)',
+                      marginLeft: '3px',
+                    }} />
+                  </div>
+                )}
+              </div>
+
+              {/* Bottom section — audio player OR CTA button */}
+              {faq.hasAudio ? (
+                <audio
+                  controls
+                  preload="metadata"
+                  src="https://hct0gdycqvi2owm9.public.blob.vercel-storage.com/%E2%80%8EAudio%20Message%20from%20Anton%20Wisbiski.m4a"
+                  style={{
+                    width: '100%',
+                    height: '40px',
+                    borderRadius: '8px',
+                  }}
+                />
+              ) : faq.buttonText ? (
+                <a
+                  href={faq.buttonHref || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'block',
+                    fontFamily: fontBody,
+                    fontSize: '18px',
+                    fontWeight: 700,
+                    color: '#fff',
+                    background: brand.dark,
+                    padding: '12px 16px',
+                    borderRadius: '10px',
+                    textDecoration: 'none',
+                    textAlign: 'center',
+                    transition: 'all 0.2s',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = brand.primary
+                    e.currentTarget.style.transform = 'translateY(-1px)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = brand.dark
+                    e.currentTarget.style.transform = 'translateY(0)'
+                  }}
+                >
+                  {faq.buttonText} →
+                </a>
+              ) : null}
             </div>
           ))}
         </div>
-        <div style={{ background: brand.cardDark, borderRadius: '16px', padding: '32px', border: '1px solid rgba(45,106,79,0.3)' }}>
-          <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.cream, marginBottom: '24px' }}>
-            Content With a System Behind It
-          </h3>
-          {[
-            'Funnels that capture and convert automatically',
-            'Prospects who arrive pre-sold through your content',
-            'Automated follow-up sequences that nurture without you',
-            'Fit-focused sales calls with buyers, not browsers',
-            'A compounding system that builds momentum every week',
-          ].map((item) => (
-            <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
-              <Check size={16} color={brand.secondary} style={{ flexShrink: 0, marginTop: '3px' }} />
-              <p style={{ fontFamily: fontBody, fontSize: '18px', color: 'rgba(250,248,242,0.7)', lineHeight: 1.5 }}>{item}</p>
-            </div>
-          ))}
+
+        {/* Comparison cards (existing) */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+          <div style={{ background: '#fff', borderRadius: '16px', padding: '32px', border: '1px solid rgba(220,60,60,0.2)' }}>
+            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.text, marginBottom: '24px' }}>
+              Content Without Infrastructure
+            </h3>
+            {[
+              'Views that go nowhere \u2014 disconnected from any revenue path',
+              'No path for a viewer to buy, book, or subscribe',
+              'Manual follow-up that drains your time and loses leads',
+              'Re-explaining your offer on every single call',
+              'Starting over every month \u2014 no compounding, no momentum',
+            ].map((item) => (
+              <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
+                <X size={16} color={brand.red} style={{ flexShrink: 0, marginTop: '3px' }} />
+                <p style={{ fontFamily: fontBody, fontSize: '18px', color: brand.text, lineHeight: 1.5 }}>{item}</p>
+              </div>
+            ))}
+          </div>
+          <div style={{ background: '#fff', borderRadius: '16px', padding: '32px', border: '1px solid rgba(45,106,79,0.3)' }}>
+            <h3 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: '22px', color: brand.text, marginBottom: '24px' }}>
+              Content With a System Behind It
+            </h3>
+            {[
+              'Funnels that capture and convert automatically',
+              'Prospects who arrive pre-sold through your content',
+              'Automated follow-up sequences that nurture without you',
+              'Fit-focused sales calls with buyers, not browsers',
+              'A compounding system that builds momentum every week',
+            ].map((item) => (
+              <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
+                <Check size={16} color={brand.secondary} style={{ flexShrink: 0, marginTop: '3px' }} />
+                <p style={{ fontFamily: fontBody, fontSize: '18px', color: brand.text, lineHeight: 1.5 }}>{item}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -1179,6 +1279,18 @@ function FinalComparison() {
 
 /* ──────────────────── FINAL CTA ──────────────────── */
 function FinalCTA() {
+  const bookerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!bookerRef.current) return
+    // Avoid loading the script twice
+    if (bookerRef.current.querySelector('script')) return
+    const script = document.createElement('script')
+    script.src = 'https://beamcal.com/meet/embed/tony_discovery_call/booker_tony_discovery_call'
+    script.async = true
+    bookerRef.current.appendChild(script)
+  }, [])
+
   return (
     <section
       id="cta"
@@ -1188,7 +1300,7 @@ function FinalCTA() {
         textAlign: 'center',
       }}
     >
-      <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '700px', margin: '0 auto' }}>
         <h2 style={{ fontFamily: fontHeading, fontWeight: 700, fontSize: 'clamp(32px, 4vw, 52px)', color: brand.text, marginBottom: '20px' }}>
           Ready to Install the System?
         </h2>
@@ -1196,32 +1308,7 @@ function FinalCTA() {
           Book a strategy call. We'll map your offer, your audience, and the infrastructure
           that connects content to revenue — so every video works harder than the last.
         </p>
-        <a
-          href="#cta"
-          style={{
-            fontFamily: fontBody,
-            fontSize: '19px',
-            color: brand.cream,
-            background: brand.primary,
-            padding: '16px 40px',
-            borderRadius: '8px',
-            textDecoration: 'none',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            transition: 'all 0.2s',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = brand.secondary
-            e.currentTarget.style.transform = 'translateY(-2px)'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = brand.primary
-            e.currentTarget.style.transform = 'translateY(0)'
-          }}
-        >
-          Book a Call <ChevronRight size={18} />
-        </a>
+        <div ref={bookerRef} style={{ width: '100%', minHeight: '400px' }} />
       </div>
     </section>
   )
@@ -1262,7 +1349,6 @@ export default function App() {
         body { background: ${brand.bg}; }
         @media (max-width: 768px) {
           .nav-links { display: none !important; }
-          .engine-wheel { display: none !important; }
           .step-illustration { height: 120px !important; }
           .section-illustration { height: 140px !important; }
         }
@@ -1270,9 +1356,8 @@ export default function App() {
       <Nav />
       <Hero />
       <ProblemSection />
-      <ThumbnailPortfolio />
+      <VSLShowcase />
       <CaseStudies />
-      <BusinessOwnerSection />
       <ComparisonCards />
       <ProcessSection />
       <RevenueEngine />
