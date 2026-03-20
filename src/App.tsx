@@ -314,6 +314,14 @@ function VSLShowcase() {
       company: 'Crime Scene Cleaning',
       quote: '\u201CHe got me 13,000,000 views on my first video\u201D',
     },
+    {
+      id: 'vsl-payton',
+      src: 'https://player.vimeo.com/video/1175620452?badge=0&autopause=0&player_id=0&app_id=58479',
+      title: 'payton-testimonial-video',
+      name: 'Payton',
+      company: 'Car Salesman',
+      quote: '\u201CIn one call, we set him up and got over 100k views with our format\u201D',
+    },
   ]
 
   return (
