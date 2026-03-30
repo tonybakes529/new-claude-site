@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bakes Media</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Literata:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: #FAF8F2; color: #1B1B1B; font-family: 'Instrument Serif', serif; }
+
+    /* ──── COLORS & FONTS ──── */
+    :root {
+      --bg: #FAF8F2;
+      --text: #1B1B1B;
+      --primary: #1B4332;
+      --secondary: #2D6A4F;
+      --muted: #8B8578;
+      --border: #E8E4DA;
+      --cream: #FAF8F2;
+      --dark: #0D1F17;
+      --card-dark: #132A1E;
+      --red: #DC3C3C;
+      --font-heading: 'Literata', serif;
+      --font-body: 'Instrument Serif', serif;
+    }
+
+    /* ──── NAV ──── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+
+    nav.scrolled {
+      background: rgba(250, 248, 242, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 20px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      font-family: var(--font-body);
+      font-size: 20px;
+      color: var(--cream);
+      background: var(--primary);
+      padding: 10px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* ──── HERO ──── */
+    .hero {
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 24px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-heading {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(42px, 5.5vw, 80px);
+      line-height: 1.1;
+      color: var(--text);
+      max-width: 1200px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-heading span {
+      color: var(--primary);
+    }
+
+    .hero-video {
+      width: 100%;
+      max-width: 800px;
+      aspect-ratio: 16/9;
+      border: 2px solid var(--secondary);
+      border-radius: 16px;
+      background: var(--card-dark);
+      box-shadow: 0 0 60px rgba(45, 106, 79, 0.2);
+      overflow: hidden;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      min-height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(250, 248, 242, 0.5);
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      max-width: 800px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(28px, 3.5vw, 44px);
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-family: var(--font-body);
+      font-size: clamp(13px, 1.2vw, 16px);
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ──── PROBLEM SECTION ──── */
+    .problem-section {
+      background: var(--dark);
+      padding: 80px 24px;
+    }
+
+    .problem-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 64px;
+      align-items: start;
+    }
+
+    .problem-heading {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.15;
+      color: var(--cream);
+    }
+
+    .problem-heading span {
+      color: var(--secondary);
+    }
+
+    .problem-content p {
+      font-family: var(--font-body);
+      font-size: 22px;
+      color: rgba(250, 248, 242, 0.7);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    /* ──── TESTIMONIALS ──── */
+    .testimonials {
+      background: var(--dark);
+      padding: 40px 24px;
+    }
+
+    .testimonials-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .testimonial-card {
+      width: 100%;
+      max-width: 280px;
+      text-align: center;
+    }
+
+    .testimonial-video {
+      width: 100%;
+      aspect-ratio: 9/16;
+      background: var(--card-dark);
+      border: 2px solid var(--secondary);
+      border-radius: 16px;
+      box-shadow: 0 0 60px rgba(45, 106, 79, 0.2);
+      overflow: hidden;
+      position: relative;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(250, 248, 242, 0.5);
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-name {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .testimonial-quote {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 16px;
+      color: rgba(250, 248, 242, 0.6);
+      line-height: 1.5;
+    }
+
+    /* ──── CASE STUDIES ──── */
+    .case-studies {
+      background: var(--dark);
+      padding: 100px 24px;
+    }
+
+    .case-studies-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .case-studies-label {
+      font-family: var(--font-heading);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .case-studies-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(32px, 4vw, 52px);
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+
+    .case-studies-subtitle {
+      font-family: var(--font-body);
+      font-size: 22px;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .case-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(45, 106, 79, 0.3);
+      background: var(--card-dark);
+      transition: all 0.2s;
+    }
+
+    .case-card:hover {
+      border-color: var(--secondary);
+      box-shadow: 0 8px 32px rgba(45, 106, 79, 0.2);
+    }
+
+    .case-header {
+      background: linear-gradient(135deg, var(--dark), var(--card-dark));
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .case-header-text {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--cream);
+    }
+
+    .case-body {
+      padding: 24px;
+    }
+
+    .case-name {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+
+    .case-stats {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+    }
+
+    .case-stat {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-family: var(--font-body);
+      font-size: 18px;
+      color: rgba(250, 248, 242, 0.8);
+      line-height: 1.5;
+    }
+
+    .case-stat-icon {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      margin-top: 3px;
+      color: var(--primary);
+    }
+
+    .case-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--cream);
+      background: var(--primary);
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .case-link:hover {
+      background: var(--secondary);
+    }
+
+    /* ──── COMPARISON CARDS (Top) ──── */
+    .top-comparison {
+      background: var(--bg);
+      padding: 100px 24px;
+    }
+
+    .comparison-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .comparison-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid rgba(220, 60, 60, 0.2);
+    }
+
+    .comparison-card.with {
+      border: 1px solid rgba(45, 106, 79, 0.3);
+    }
+
+    .comparison-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .comparison-items {
+      list-style: none;
+      padding: 0;
+    }
+
+    .comparison-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 16px;
+      font-family: var(--font-body);
+      font-size: 18px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .comparison-icon {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      margin-top: 3px;
+    }
+
+    /* ──── PROCESS SECTION ──── */
+    .process {
+      background: var(--bg);
+      padding: 100px 24px;
+    }
+
+    .process-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .process-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .process-label {
+      font-family: var(--font-heading);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .process-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(32px, 4vw, 52px);
+      color: var(--text);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .step-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s ease;
+    }
+
+    .step-card:hover {
+      border-color: var(--secondary);
+      box-shadow: 0 4px 20px rgba(45, 106, 79, 0.1);
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--cream);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .step-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-family: var(--font-body);
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .step-7 {
+      background: #fff;
+      border: 2px solid var(--primary);
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .step-7-wrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .step-7-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--cream);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-7-content {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .step-7-content h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 26px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .step-7-content p {
+      font-family: var(--font-body);
+      font-size: 20px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ──── REVENUE ENGINE ──── */
+    .revenue-engine {
+      background: var(--dark);
+      padding: 100px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .revenue-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45, 106, 79, 0.4) 0%, transparent 65%);
+    }
+
+    .revenue-container {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .revenue-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .revenue-label {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--secondary);
+      border: 1px solid var(--secondary);
+      border-radius: 999px;
+      padding: 6px 20px;
+      margin-bottom: 24px;
+    }
+
+    .revenue-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(32px, 4vw, 52px);
+      color: var(--cream);
+      margin-bottom: 16px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .revenue-title span {
+      color: var(--secondary);
+    }
+
+    .revenue-subtitle {
+      font-family: var(--font-body);
+      font-size: 22px;
+      color: rgba(250, 248, 242, 0.7);
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .legend {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .legend-box {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+    }
+
+    .legend-text {
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(250, 248, 242, 0.4);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .revenue-step {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 22px 40px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      transition: background 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .revenue-step.you {
+      padding: 32px 40px;
+      background: rgba(250, 248, 242, 0.09);
+      border: 1px solid rgba(250, 248, 242, 0.18);
+    }
+
+    .revenue-step:hover {
+      background: rgba(45, 106, 79, 0.22);
+      border-color: rgba(45, 106, 79, 0.4);
+    }
+
+    .step-accent {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: rgba(45, 106, 79, 0.2);
+      border-radius: 10px 0 0 10px;
+      transition: background 0.2s ease;
+    }
+
+    .revenue-step.you .step-accent {
+      background: var(--cream);
+    }
+
+    .revenue-step:hover .step-accent {
+      background: var(--secondary);
+    }
+
+    .step-number-mini {
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(45, 106, 79, 0.5);
+      letter-spacing: 0.1em;
+      min-width: 28px;
+      padding-left: 12px;
+    }
+
+    .revenue-step.you .step-number-mini {
+      color: rgba(250, 248, 242, 0.3);
+    }
+
+    .step-title-text {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: rgba(250, 248, 242, 0.9);
+      letter-spacing: -0.01em;
+      flex: 1;
+      transition: color 0.2s;
+    }
+
+    .revenue-step.you .step-title-text {
+      font-size: 32px;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+    }
+
+    .step-badge {
+      background: var(--cream);
+      color: var(--dark);
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 7px 20px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .step-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .indicator-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--secondary);
+      opacity: 0.4;
+      transition: opacity 0.2s;
+    }
+
+    .revenue-step:hover .indicator-dot {
+      opacity: 1;
+    }
+
+    .indicator-label {
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(45, 106, 79, 0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .revenue-step:hover .indicator-label {
+      color: var(--secondary);
+    }
+
+    .revenue-summary {
+      margin-top: 48px;
+      background: var(--card-dark);
+      border: 1px solid rgba(45, 106, 79, 0.3);
+      border-radius: 12px;
+      padding: 32px 40px;
+    }
+
+    .summary-text {
+      font-family: var(--font-body);
+      font-size: 20px;
+      color: rgba(250, 248, 242, 0.7);
+      line-height: 1.7;
+    }
+
+    /* ──── FAQ ──── */
+    .faq {
+      background: var(--bg);
+      padding: 80px 24px;
+    }
+
+    .faq-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .faq-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(32px, 4vw, 52px);
+      color: var(--text);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    .faq-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-card:hover {
+      border-color: var(--secondary);
+      box-shadow: 0 4px 20px rgba(45, 106, 79, 0.1);
+    }
+
+    .faq-question {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.4;
+      min-height: 63px;
+    }
+
+    .faq-video-placeholder {
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(250, 248, 242, 0.5);
+      font-size: 14px;
+    }
+
+    /* ──── CTA ──── */
+    .cta {
+      background: linear-gradient(180deg, var(--bg) 0%, rgba(27, 67, 50, 0.05) 100%);
+      padding: 100px 24px;
+      text-align: center;
+    }
+
+    .cta-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(32px, 4vw, 52px);
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .cta-content {
+      font-family: var(--font-body);
+      font-size: 22px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .cta-placeholder {
+      width: 100%;
+      min-height: 400px;
+      background: var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* ──── FOOTER ──── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--primary);
+    }
+
+    .footer-copyright {
+      font-family: var(--font-body);
+      font-size: 18px;
+      color: var(--muted);
+    }
+
+    /* ──── RESPONSIVE ──── */
+    @media (max-width: 768px) {
+      .hero { padding: 80px 24px 40px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .problem-container { grid-template-columns: 1fr; gap: 32px; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .comparison-grid { grid-template-columns: 1fr; }
+      .step-7-wrapper { flex-direction: column; }
+      nav { padding: 16px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ──── NAV ──── -->
+<nav id="nav">
+  <a href="#" class="nav-brand">Bakes Media</a>
+  <div style="display: flex; align-items: center; gap: 32px;">
+    <div class="nav-links">
+      <a href="#system">System</a>
+      <a href="#proof">Proof</a>
+      <a href="#process">Process</a>
+    </div>
+    <a href="#cta" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- ──── HERO ──── -->
+<section class="hero">
+  <h1 class="hero-heading">
+    I Build the Revenue Infrastructure Behind
+    <span>Your YouTube Channel.</span>
+  </h1>
+  <div class="hero-video">
+    [VIDEO EMBED HERE]
+  </div>
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-value">400M+</div>
+      <div class="stat-label">Views Built</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">$50K</div>
+      <div class="stat-label">From One Funnel</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">1.5M</div>
+      <div class="stat-label">Subscribers</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">10+</div>
+      <div class="stat-label">Years Building</div>
+    </div>
+  </div>
+</section>
+
+<!-- ──── PROBLEM SECTION ──── -->
+<section class="problem-section">
+  <div class="problem-container">
+    <h2 class="problem-heading">
+      Your Content Isn't the Problem.
+      <span>Your Infrastructure Is.</span>
+    </h2>
+    <div>
+      <p>Most creators post content and hope it generates revenue. But content without infrastructure is just noise — no funnels capturing leads, no offers converting viewers, no automated paths turning attention into income.</p>
+      <p>The businesses winning on YouTube haven't just figured out content. They've built systems — where every video connects to a funnel, every funnel connects to an offer, and every offer connects to measurable revenue.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ──── TESTIMONIALS ──── -->
+<section class="testimonials">
+  <div class="testimonials-container">
+    <div class="testimonial-card">
+      <div class="testimonial-video">[TESTIMONIAL VIDEO 1]</div>
+      <div class="testimonial-name">Tanner & Jakie Hurst — JT Junk Solutions</div>
+      <p class="testimonial-quote">"We can directly track $50,000 in revenue to Tony and the Bakes Media Team"</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-video">[TESTIMONIAL VIDEO 2]</div>
+      <div class="testimonial-name">Laura Spaulding — Crime Scene Cleaning</div>
+      <p class="testimonial-quote">"He got me 13,000,000 views on my first video"</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-video">[TESTIMONIAL VIDEO 3]</div>
+      <div class="testimonial-name">Payton — Car Salesman</div>
+      <p class="testimonial-quote">"In one call, we set him up and got over 100k views with our format"</p>
+    </div>
+  </div>
+</section>
+
+<!-- ──── CASE STUDIES ──── -->
+<section class="case-studies" id="proof">
+  <div class="case-studies-header">
+    <div class="case-studies-label">PROOF, NOT PROMISES</div>
+    <h2 class="case-studies-title">Real Systems. Real Revenue.</h2>
+    <p class="case-studies-subtitle">These aren't just content wins — they're full infrastructure builds where every piece connects to revenue.</p>
+  </div>
+  <div class="case-grid">
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-header-text">Full System → $50K+ Revenue</div>
+      </div>
+      <div class="case-body">
+        <div class="case-name">JT Junk Solutions</div>
+        <ul class="case-stats">
+          <li class="case-stat"><span class="case-stat-icon">✓</span> $50K+ Coaching Sales from YouTube Funnel</li>
+          <li class="case-stat"><span class="case-stat-icon">✓</span> 90 Qualified Sales Calls via Automated Pipeline</li>
+          <li class="case-stat"><span class="case-stat-icon">✓</span> $500K in First-Year Affiliate SaaS Revenue</li>
+          <li class="case-stat"><span class="case-stat-icon">✓</span> 242,358 Qualified Clicks Through CTA System</li>
+          <li class="case-stat"><span class="case-stat-icon">✓</span> 43 Paid Signups via Conversion Path</li>
+          <li class="case-stat"><span class="case-stat-icon">✓</span> YouTube Monetized as Bonus Revenue Stream</li>
+        </ul>
+        <a href="#case-jt-junk" class="case-link">Read the Full Case Study →</a>
+      </div>
+    </div>
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-header-text">Content Engine → $200K Revenue</div>
+      </div>
+      <div class="case-body">
+        <div class="case-name">Crime Scene Cleaning</div>
+        <ul class="case-stats">
+          <li class="case-stat"><span class="case-stat-icon">✓</span> $200K in Added Revenue from System</li>
+          <li class="case-stat"><span class="case-stat-icon">✓</span> 140,000,000 Total Views</li>
+          <li class="case-stat"><span class="case-stat-icon">✓</span> 1,400,000 Subscribers Built</li>
+          <li class="case-stat"><span class="case-stat-icon">✓</span> Content → Authority → Inbound Demand Pipeline</li>
+        </ul>
+        <a href="#case-crime-scene" class="case-link">Read the Full Case Study →</a>
+      </div>
+    </div>
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-header-text">SEO Infrastructure → $8M Sales</div>
+      </div>
+      <div class="case-body">
+        <div class="case-name">John Deere</div>
+        <ul class="case-stats">
+          <li class="case-stat"><span class="case-stat-icon">✓</span> $8M in Sales via SEO Content System</li>
+          <li class="case-stat"><span class="case-stat-icon">✓</span> 2.3M+ Views from Search-Based Strategy</li>
+          <li class="case-stat"><span class="case-stat-icon">✓</span> 46% Traffic from External (Google) Sources</li>
+          <li class="case-stat"><span class="case-stat-icon">✓</span> Ranked for High-Intent Buyer Queries</li>
+          <li class="case-stat"><span class="case-stat-icon">✓</span> Shorts Indexed in Google Video Results</li>
+        </ul>
+        <a href="#case-john-deere" class="case-link">Read the Full Case Study →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──── COMPARISON (Top) ──── -->
+<section class="top-comparison">
+  <div class="comparison-container">
+    <div class="comparison-grid">
+      <div class="comparison-card">
+        <h3 class="comparison-title">Outdated to Legacy Conversions and Dead End</h3>
+        <ul class="comparison-items">
+          <li class="comparison-item"><span class="comparison-icon">✗</span> Underestimate to Legacy Conversions and Dead End</li>
+          <li class="comparison-item"><span class="comparison-icon">✗</span> Try to get together strategy, editing, SEO, and sales yourself</li>
+          <li class="comparison-item"><span class="comparison-icon">✗</span> Clean content without strategy produces volume, not value</li>
+          <li class="comparison-item"><span class="comparison-icon">✗</span> Outsourcing doesn't replace the ability to script, position, and convert</li>
+          <li class="comparison-item"><span class="comparison-icon">✗</span> Using it all yourself means nothing to do at the level it needs to perform</li>
+        </ul>
+      </div>
+      <div class="comparison-card with">
+        <h3 class="comparison-title">What I Build Instead</h3>
+        <ul class="comparison-items">
+          <li class="comparison-item"><span class="comparison-icon">✓</span> An named media channel built on strategy, creative skill, and data</li>
+          <li class="comparison-item"><span class="comparison-icon">✓</span> Research, ideation, scripting, production, and SEO aligned toward revenue</li>
+          <li class="comparison-item"><span class="comparison-icon">✓</span> Using it all yourself means nothing to do at the level it needs to perform</li>
+          <li class="comparison-item"><span class="comparison-item"><span class="comparison-icon">✓</span> Offer development — scripting, positioning, pacing — structured to hold attention and drive action</li>
+          <li class="comparison-item"><span class="comparison-icon">✓</span> Full execution — scripting, production, editing, packaging, SEO, distribution</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──── PROCESS SECTION ──── -->
+<section class="process" id="process">
+  <div class="process-container">
+    <div class="process-header">
+      <p class="process-label">THE FULL STACK</p>
+      <h2 class="process-title">One System. End to End. Built to Convert.</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Funnel Architecture</h3>
+        <p class="step-desc">We audit your offer, map your sales process, and design the conversion path that turns viewers into buyers.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3 class="step-title">Research & Ideation</h3>
+        <p class="step-desc">We dig into search data, competitor gaps, and audience behavior to find the topics that attract buyers — not just viewers.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3 class="step-title">Scripting & Structure</h3>
+        <p class="step-desc">Every script is built by writers who understand hooks, persuasion, and pacing — structured to hold attention and drive action.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <h3 class="step-title">Production & Editing</h3>
+        <p class="step-desc">Skilled editors build pacing, trust, and retention into every cut — the things that keep people watching and buying.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">5</div>
+        <h3 class="step-title">Packaging & CTR</h3>
+        <p class="step-desc">Thumbnails and titles designed by creatives who understand what earns the click — then tested and refined based on real performance data.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">6</div>
+        <h3 class="step-title">SEO & Distribution</h3>
+        <p class="step-desc">Content structured to rank in both YouTube and Google search. Metadata, timing, and distribution dialed in so every video compounds over time.</p>
+      </div>
+    </div>
+    <div class="step-7">
+      <div class="step-7-wrapper">
+        <div class="step-7-number">7</div>
+        <div class="step-7-content">
+          <h3>Tracking, Attribution & Revenue Intelligence</h3>
+          <p>We build a performance database that tracks CTR, retention, traffic sources, funnel drop-off, and sales attribution — so every decision is backed by data, not guesswork. AI surfaces the patterns. You see exactly what's working and what's leaking.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──── REVENUE ENGINE ──── -->
+<section class="revenue-engine" id="system">
+  <div class="revenue-glow"></div>
+  <div class="revenue-container">
+    <div class="revenue-header">
+      <span class="revenue-label">The Full System</span>
+      <h2 class="revenue-title">
+        Content Is the Entry Point.
+        <span>The System Is What Converts.</span>
+      </h2>
+      <p class="revenue-subtitle">We handle 8 of the 9 steps. You handle one — recording. Everything else is engineered, automated, and optimized by us.</p>
+    </div>
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-box" style="background: var(--secondary);"></div>
+        <span class="legend-text">Bakes Media</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-box" style="background: var(--cream);"></div>
+        <span class="legend-text">You</span>
+      </div>
+    </div>
+    <div class="steps-list">
+      <div class="revenue-step">
+        <div class="step-accent"></div>
+        <span class="step-number-mini">01</span>
+        <span class="step-title-text">Funnel Architecture</span>
+        <div class="step-indicator">
+          <div class="indicator-dot"></div>
+          <span class="indicator-label">Us</span>
+        </div>
+      </div>
+      <div class="revenue-step">
+        <div class="step-accent"></div>
+        <span class="step-number-mini">02</span>
+        <span class="step-title-text">Research & Ideation</span>
+        <div class="step-indicator">
+          <div class="indicator-dot"></div>
+          <span class="indicator-label">Us</span>
+        </div>
+      </div>
+      <div class="revenue-step">
+        <div class="step-accent"></div>
+        <span class="step-number-mini">03</span>
+        <span class="step-title-text">Script & Structure</span>
+        <div class="step-indicator">
+          <div class="indicator-dot"></div>
+          <span class="indicator-label">Us</span>
+        </div>
+      </div>
+      <div class="revenue-step you">
+        <div class="step-accent"></div>
+        <span class="step-number-mini">04</span>
+        <span class="step-title-text">You Record.</span>
+        <span class="step-badge">← Your Only Job</span>
+      </div>
+      <div class="revenue-step">
+        <div class="step-accent"></div>
+        <span class="step-number-mini">05</span>
+        <span class="step-title-text">Edit & Produce</span>
+        <div class="step-indicator">
+          <div class="indicator-dot"></div>
+          <span class="indicator-label">Us</span>
+        </div>
+      </div>
+      <div class="revenue-step">
+        <div class="step-accent"></div>
+        <span class="step-number-mini">06</span>
+        <span class="step-title-text">Packaging & CTR</span>
+        <div class="step-indicator">
+          <div class="indicator-dot"></div>
+          <span class="indicator-label">Us</span>
+        </div>
+      </div>
+      <div class="revenue-step">
+        <div class="step-accent"></div>
+        <span class="step-number-mini">07</span>
+        <span class="step-title-text">SEO & Distribution</span>
+        <div class="step-indicator">
+          <div class="indicator-dot"></div>
+          <span class="indicator-label">Us</span>
+        </div>
+      </div>
+      <div class="revenue-step">
+        <div class="step-accent"></div>
+        <span class="step-number-mini">08</span>
+        <span class="step-title-text">Automated Funnels</span>
+        <div class="step-indicator">
+          <div class="indicator-dot"></div>
+          <span class="indicator-label">Us</span>
+        </div>
+      </div>
+      <div class="revenue-step">
+        <div class="step-accent"></div>
+        <span class="step-number-mini">09</span>
+        <span class="step-title-text">Tracking & Attribution</span>
+        <div class="step-indicator">
+          <div class="indicator-dot"></div>
+          <span class="indicator-label">Us</span>
+        </div>
+      </div>
+    </div>
+    <div class="revenue-summary">
+      <p class="summary-text">We don't just produce content. We build systems. Every piece — from research to execution to attribution — is engineered to turn viewers into revenue.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ──── FAQ ──── -->
+<section class="faq">
+  <div class="faq-container">
+    <div class="faq-header">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-card">
+        <p class="faq-question">"I've been burned by a content agency before." Why won't you do the same thing to me?</p>
+        <div class="faq-video-placeholder">[FAQ VIDEO 1]</div>
+      </div>
+      <div class="faq-card">
+        <p class="faq-question">"Views don't equal money — how does this actually generate revenue?"</p>
+        <div class="faq-video-placeholder">[FAQ VIDEO 2]</div>
+      </div>
+      <div class="faq-card">
+        <p class="faq-question">"How long until I actually see results?"</p>
+        <div class="faq-video-placeholder">[FAQ VIDEO 3]</div>
+      </div>
+      <div class="faq-card">
+        <p class="faq-question">"How much does it cost?"</p>
+        <div class="faq-video-placeholder">[FAQ VIDEO 4]</div>
+      </div>
+      <div class="faq-card">
+        <p class="faq-question">"Can YouTube really work for my type of business?"</p>
+        <div class="faq-video-placeholder">[FAQ VIDEO 5]</div>
+      </div>
+      <div class="faq-card">
+        <p class="faq-question">"I've been posting content and nothing happens."</p>
+        <div class="faq-video-placeholder">[FAQ VIDEO 6]</div>
+      </div>
+    </div>
+    <div class="comparison-grid">
+      <div class="comparison-card">
+        <h3 class="comparison-title">Content Without Infrastructure</h3>
+        <ul class="comparison-items">
+          <li class="comparison-item"><span class="comparison-icon">✗</span> Views that go nowhere — disconnected from any revenue path</li>
+          <li class="comparison-item"><span class="comparison-icon">✗</span> No path for a viewer to buy, book, or subscribe</li>
+          <li class="comparison-item"><span class="comparison-icon">✗</span> Manual follow-up that drains your time and loses leads</li>
+          <li class="comparison-item"><span class="comparison-icon">✗</span> Re-explaining your offer on every single call</li>
+          <li class="comparison-item"><span class="comparison-icon">✗</span> Starting over every month — no compounding, no momentum</li>
+        </ul>
+      </div>
+      <div class="comparison-card with">
+        <h3 class="comparison-title">Content With a System Behind It</h3>
+        <ul class="comparison-items">
+          <li class="comparison-item"><span class="comparison-icon">✓</span> Funnels that capture and convert automatically</li>
+          <li class="comparison-item"><span class="comparison-icon">✓</span> Prospects who arrive pre-sold through your content</li>
+          <li class="comparison-item"><span class="comparison-icon">✓</span> Automated follow-up sequences that nurture without you</li>
+          <li class="comparison-item"><span class="comparison-icon">✓</span> Fit-focused sales calls with buyers, not browsers</li>
+          <li class="comparison-item"><span class="comparison-icon">✓</span> A compounding system that builds momentum every week</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──── CTA ──── -->
+<section class="cta" id="cta">
+  <div class="cta-container">
+    <h2 class="cta-title">Ready to Install the System?</h2>
+    <p class="cta-content">Book a strategy call. We'll map your offer, your audience, and the infrastructure that connects content to revenue — so every video works harder than the last.</p>
+    <div class="cta-placeholder">[BOOKING CALENDAR/CTA EMBED HERE]</div>
+  </div>
+</section>
+
+<!-- ──── FOOTER ──── -->
+<footer>
+  <span class="footer-brand">Bakes Media</span>
+  <span class="footer-copyright">&copy; 2026 Tony Bakes · Built from scratch</span>
+</footer>
+
+<script>
+  // Sticky nav on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+</script>
+
+</body>
+</html>
