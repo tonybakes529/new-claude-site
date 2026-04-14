@@ -48,6 +48,7 @@ export default function BrandKit() {
         <h1 style={{ fontFamily: brand.fonts.heading.css, fontSize: "clamp(32px, 7vw, 52px)", fontWeight: 700, lineHeight: 1.05, margin: "0 0 6px 0", color: c.accent }}>
           Tony Bakes
         </h1>
+        <div style={{ fontSize: "13px", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", color: c.accentMid, marginBottom: "12px" }}>Welcome to Bakes Media</div>
         <p style={{ fontSize: "16px", color: c.muted, margin: "0 0 24px 0", lineHeight: 1.5 }}>
           Builder. 10+ years. Systems that generate revenue on autopilot.
         </p>
